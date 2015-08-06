@@ -61,5 +61,22 @@ int main()
 
 好的，接下来我们就要开始真正的编程了。
 
+*******
+
+#### 练习
+
+请试着让下面这段代码编译通过，并指出与原文中代码的不同：
+
+```c++
+#include <cstdio>
+
+using namespace std;
+
+auto main() -> int
+{
+    printf("Hello fresh shit!");
+}
+```
+
 [^1]: https://en.wikipedia.org/wiki/Compiler
 [^2]: https://en.wikipedia.org/wiki/Integrated_development_environment
