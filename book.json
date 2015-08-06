@@ -1,4 +1,6 @@
 {
-    "version": "2.x.x",
-    "plugins": ["math"]
+    "gitbook": ">=2.0.0",
+    "plugins": [
+        "math"
+    ]
 }
