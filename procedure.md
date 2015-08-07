@@ -14,8 +14,7 @@ x, &x\ge0\cr
 \end{cases}
 \end{eqnarray}
 $$
-求绝对值，
-或者
+求绝对值，或者
 $$pow(x,y) = \prod_{1}^{y}{x}$$
 求积。
 
