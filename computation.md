@@ -49,7 +49,7 @@ int pow5(int num) {
 }
 
 int main(){
-    printf("%d", pow(1));
+    printf("%d", pow5(1));
 }
 ```
 嗯，没错，输出了我们期望的结果（`1`）。
