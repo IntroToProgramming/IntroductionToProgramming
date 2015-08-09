@@ -155,6 +155,53 @@ Unicode包含的字符量足够的多，于是就要设计比ASCII更充分大�
 
 但是，为了兼容，没办法。
 
-### UTF-8
+### UTF-8[^12]
 
-这是来自Ken Thompson[^12]的设计，这老小子给整个IT界贡献了不少东西，Unix、C语言、UTF-8。
+于是为了解决这个浪费空间的问题，UTF-8出现了。这是来自Ken Thompson[^13]的设计，这老小子给整个IT界贡献了不少东西，Unix、C语言、UTF-8。
+
+简单来说就是，在保持与ASCII兼容的情况下，通过添加一些标记来支持更长的编码。
+
+具体的做法当然维基百科介绍的比我更清楚，这里提起来只是要说这么一个思路：变长编码（Variable-Width Encoding[^14]）。因为比较重要的就是在设计的过程中考虑变量和不变量，以及设置各种标志和不同的数据区块解释方式，这样就可以把简单的二进制序列变成我们想要的任意数据。
+
+当然，这里的思想我们会在第七章详细地展开。
+
+## 数系的扩充
+
+你有没有尝试计算C++里面`1/3`的结果？
+
+跟你期待的不同，并不是`0.333333`，而只是0。
+
+为什么呢？
+
+我们已经提到过了，int在计算机中只能表示整数，于是你1/3，对计算机来说，直接能得出的整数结果就是0（想想小学学过的初等数论的知识吧）。
+
+当我们需要小数的时候又该如何呢？
+
+
+[^1]: [《编码》](https://en.wikipedia.org/wiki/Code:_The_Hidden_Language_of_Computer_Hardware_and_Software)是来自微软的Charles Petzold的经典著作，深入浅出地讲述了计算机科学的部分基础知识。可以在[这里](http://book.douban.com/subject/4822685/)找到中文版。
+
+[^2]: https://en.wikipedia.org/wiki/Encoding
+
+[^3]: https://en.wikipedia.org/wiki/Arabic_numerals
+
+[^4]: https://en.wikipedia.org/wiki/Bit
+
+[^5]: https://en.wikipedia.org/wiki/Byte
+
+[^6]: https://en.wikipedia.org/wiki/Hexadecimal
+
+[^7]: https://en.wikipedia.org/wiki/Decimal
+
+[^8]: https://en.wikipedia.org/wiki/Character_%28computing%29
+
+[^9]: https://en.wikipedia.org/wiki/Unicode
+
+[^10]: https://en.wikipedia.org/wiki/UTF-16
+
+[^11]: https://en.wikipedia.org/wiki/UTF-32
+
+[^12]: https://en.wikipedia.org/wiki/UTF-8
+
+[^13]: https://en.wikipedia.org/wiki/Ken_Thompson
+
+[^14]: https://en.wikipedia.org/wiki/Variable-width_encoding
