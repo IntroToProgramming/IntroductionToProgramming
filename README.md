@@ -16,9 +16,12 @@
    + 练习
  * 第三章 过程 Procedural (done)
    + 练习
- * 第四章 编码 Encoding (partial)
- * 第五章
- * 第六章
+ * 第四章 编码 Encoding (done)
+   + 练习
+ * 第五章 序列 Sequence (partial)
+
+ * 第六章 引用 Reference (partial, by [CHE](http://github.com/CUITCHE))
+
  * 第七章
  * 第八章
  * 第九章
@@ -36,3 +39,10 @@
 ##### 通过支付宝资助我创作：
 
 ![支付宝](https://mobilecodec.alipay.com/show.htm?code=ap69z5d4uik0zvec89&picSize=S)
+
+或点击<script data-gratipay-username="kenpusney"
+        data-gratipay-widget="button"
+        src="//grtp.co/v1.js"></script>给予帮助。
+
+###### 特别感谢以下朋友的资助
+  - [esrever10](https://github.com/esrever10)
