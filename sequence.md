@@ -142,11 +142,13 @@ Bingo！屏幕上显示出了"hello world"！
 
 ![list](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Cons-cells.svg/320px-Cons-cells.svg.png)
 
-这种结构被称为链接列表（也叫链表，Linked List，在C++中称为forward_list）在上世纪五十年代就已经设计用于实际的程序。链表这种结构非常的灵活，可以很轻松的在任意位置添加或者删除数据。因为并不需要内存结构上的连续，所有的位序关系都是靠前一个元素和后一个元素之间的链接关系来确定，而添加或者删除数据只要改变一下这种链接关系就可以了。
+这种结构被称为链接列表（也叫链表，Linked List[^6]，在C++中称为forward_list）在上世纪五十年代就已经设计用于实际的程序。链表这种结构非常的灵活，可以很轻松的在任意位置添加或者删除数据。因为并不需要内存结构上的连续，所有的位序关系都是靠前一个元素和后一个元素之间的链接关系来确定，而添加或者删除数据只要改变一下这种链接关系就可以了。
 
-但是对于链表来说一个很大的问题就是访问数据。
+但是对于链表来说一个很大的问题就是访问数据。比如我们要访问链表的第n个元素的时候，对于array和串这种结构来说，因为内存空间上是连续的，直接做一次加法就能找到，但是对于链表来说每次都要从第一个元素开始找起。而且，这种形式的链表又称作单链表（Singly Linked List），是没有办法从尾部往头部走的。
 
+所以，在单链表的基础上，又构造了双链表（Double Linked List，C++中对应的是list，又叫列表），每一个元素除了纪录自己对应的下一个元素之外，还要保存自己对应的上一个元素。这种时候如果做一些相邻元素的访问，就比单链表高效了一些。
 
+比如，当我访问列表中第7个元素，然后再去访问第6个的时候，只要从第7个元素向前查找一次就可以了。
 
 [^1]: https://en.wikipedia.org/wiki/Array_data_structure
 
@@ -157,3 +159,5 @@ Bingo！屏幕上显示出了"hello world"！
 [^4]: 大部分情况下，我们所遇到的“串”都是字符串，虽然C++里面你也可以拿[其他的东西](http://en.cppreference.com/w/cpp/string/basic_string)作为“串”来玩。
 
 [^5]: https://en.wikipedia.org/wiki/Syntactic_sugar
+
+[^6]: https://en.wikipedia.org/wiki/Linked_list
