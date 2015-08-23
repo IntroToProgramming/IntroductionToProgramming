@@ -24,11 +24,11 @@
    + 练习
  * 第四章 编码 Encoding (done)
    + 练习
- * 第五章 序列 Sequence (partial)
+ * 第五章 序列 Sequence (done)
 
  * 第六章 引用 Reference (partial, by [CHE](http://github.com/CUITCHE))
 
- * 第七章
+ * 第七章 数据 Data (prepared)
  * 第八章
  * 第九章
  * 第十章
@@ -52,3 +52,4 @@
 
 ###### 特别感谢以下朋友的资助
   - [esrever10](https://github.com/esrever10)
+  - karakapi

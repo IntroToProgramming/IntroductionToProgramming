@@ -150,6 +150,75 @@ Bingo！屏幕上显示出了"hello world"！
 
 比如，当我访问列表中第7个元素，然后再去访问第6个的时候，只要从第7个元素向前查找一次就可以了。
 
+也许以后你可能还会听说到循环链表（Circular Linked List），或者是其他的形式，这些都离不开最初链表的思想：把数据和位置做关联。
+
+## 线性结构
+
+我们简单的做一个总结。
+
+对于array，string和list我们都称为序列，原因其实是显而易见的。
+
+首先，他们满足这样一点：所有的都是从头到尾连续地组织在一起，从任何地方出发都能找到下一个元素或者是到序列尾部。就像是在头和尾之间有一条线把他们串起来一样，而且在逻辑表示上，我们也是把他们放成一串。
+
+另外，对于每一个元素，他们在序列中的位置是固定的，换句话说，序列中的元素是有前后顺序的。当我任意交换两个元素的位置，得到的新序列就跟原来的序列是不同的。
+
+第三点就是，当我们从第一个元素开始找下去的时候，总是能找到最后一个元素（对于没有最后一个元素的情况，我们会在以后进行探讨）。
+
+总结下来就是，序列是线性的（Linear）、有序的（Ordered，类比“排序过的（Sorted）”）和有穷的（Finite）。
+
+## 迭代器
+既然所有的序列都满足线性有序有穷这些特性，那么也就意味着我们能够把他们的一些类似的操作统一起来进行处理。
+
+比如我们期望有这样一种操作，能够把一个序列中的所有元素的值输出：
+```c++
+list<int> aList = { 2, 8, 3, 1 };
+array<int, 4> anArray = { 9, 5, 0, 7 };
+string aString = "hello world";
+
+print(aList);
+print(anArray);
+print(aString);
+```
+迭代器（Iterator）就是这样一种东西，让你忽略不同类型的序列之间的差异，只利用他们的迭代器做一些公共的操作。
+
+比如我们的print函数就可以这样实现。
+```c++
+#include <iostream>
+
+template <typename Sequence>
+void print(const Sequence& sequence) {
+    for(auto iter = begin(sequence); iter != end(sequence); iter++)
+        std::cout << *iter << std::endl;
+}
+```
+其中，`template <typename Sequence>`表示Sequence可能是任意一种类型，至于具体会是什么类型，会在print调用的时候推导出来。比如`print(aList)`的时候，`Sequence`就会是`std::list<int>`，在另外两种情况下，会是`std::array<int, 4>`或`std::string`。
+
+于是这样我们就能够拿`Sequence`来表示这些调用的时候可能会遇到的不同的序列，来定义`print`函数。其中，`const Sequence& sequence`是说，`print`函数接收的是一个Sequence类型的常引用（`const` Reference，关于引用的更多话题，我们会在后面讨论），这样做是为了提高传递参数的效率。
+
+接下来就是我们的迭代器出场了，我们知道，根据有穷性，我们是可以获得到序列的开始位置（begin，第一个元素）和结束（end，最后一个元素的下一个位置）位置的。这个对应的位置就是该序列的迭代器。然后根据序列的线性，我们可以让迭代器移动到下一个元素的位置（`iter++`），这样反复执行，就可以顺利地遍历一个序列。
+
+另外需要注意的是`std::cout`，提供了一套比较简单的输出方法，请参阅C++ Reference的相关资料。
+
+## Iterator Categories
+
+很多时候，只有向前移动到下一个元素这种操作并不能满足我们的要求（所以才有双链表比单链表更常用），有时候我们更需要迭代器会倒带（`iter--`）。但是在有些序列（像forward_list，单链表）上，这种操作根本不能实现。所以，对于迭代器，也就要有一种分类。
+
+ - 第一种迭代器就是最简单的，可以向下一个元素迭代，叫做**ForwardIterator**。
+
+ - 第二种当然就是能够向上一个元素迭代，一个迭代器既是Forward又是Backward，那么就叫做**BidirectionalIterator**（双向迭代器）。
+
+ - 第三种能够直接访问到当前迭代器对应向下第n个元素，这个时候迭代器也可以直接用索引进行访问，一个迭代器既可以双向迭代，又可以直接索引访问，就叫做**RandomAccessIterator**。
+
+这种分类的关键在于不同的算法的适用范围。
+
+比如`std::sort`，必须要求是RandomAccessIterator。所以如果你直接`sort(begin(aList), end(aList))`，会得到满满的正常人根本无法阅读的编译错误。
+
+### 练习：最长公共子序列（Longest Common Subsequence）
+
+通常我们会对两个序列的内容进行对比，比较这两个序列有什么地方不同。这就是典型的LCS问题。LCS的应用很多，大部分版本控制系统的核心逻辑中就有它的存在。
+
+请参阅Wikipedia对LCS问题的分析和讨论，尝试实现求LCS的算法，并试分析该算法要求迭代器至少要属于哪个category。
+
 [^1]: https://en.wikipedia.org/wiki/Array_data_structure
 
 [^2]: https://en.wikipedia.org/wiki/Python_%28programming_language%29
