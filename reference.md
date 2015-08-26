@@ -178,14 +178,14 @@ dynamicArray = new int[4];// compiler OK!
 ### 数组初始化
 ```c++
 int intArray[5] = { 0, 1 };// 将数组的前两个的值初始化为0和1，后面的值不定，看编译器决定。VS2015是默认后面的为0。
-int *dynamicArray = new int[9]{ 1,2,3,4,5,6,7,8,9 };
+int *dynamicArray = new int[9]{ 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 ```
 初始化的时候，不能超过数组大小，超过就会编译报错。不过，请看下面的代码：
 ```C++
 int *dynamicArray = new int[9];
-	for (int i = 0;i < 10;++i) {
-		dynamicArray[i] = i;
-	}
+for (int i = 0;i < 10; ++i) {
+	dynamicArray[i] = i;
+}
 ```
 这样的代码，编译不会报错，但运行期的时候，就会令程序崩溃。超出数组界限，即越界。
 
@@ -194,7 +194,7 @@ C++中的数组，和C是一样的，如果你有C语言的基础，那么此节
 
 数组通过下标操作`operator[]`操作，来取得数组的对应元素的值，索引是从0开始计算的。代码为先：
 ```c++
-int intArray[5] = { 0, 1, 2,3 ,4 };
+int intArray[5] = { 0, 1, 2, 3, 4 };
 cout << intArray[0];
 ```
 >你是否想问，为什么从0开始算下标。这其实是为了方便计算。例如，以上面代码为例，想取值intArray[i]
