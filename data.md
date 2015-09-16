@@ -65,3 +65,32 @@ std::cout << car.brand;
 
 当然，他还是数据，但是这些数据通过我们贴上不同的标签以及把他们关联组合，就变成了更加具有实际意义的内容。换句话说，我们给一块二进制内存区赋予了语义（Semantics）。
 
+来让我们看一下其他的许多结构吧。
+
+复数，
+```c++
+struct Complex {
+    int real;
+    int imag;
+};
+```
+分数，
+```c++
+struct Fractional {
+    int numerator;
+    int denominator;
+};
+```
+甚至是，用数据代替表达式，
+```c++
+struct ArithmaticExpression {
+    Operator optr;
+    int leftOperand;
+    int rightOperand;
+};
+```
+以及，更多复杂的结构。
+
+## 递归数据类型
+
+看到这里也许你开始担忧了。什么是递归数据结构（Recursive Data Type）？
