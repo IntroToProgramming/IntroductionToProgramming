@@ -94,3 +94,24 @@ struct ArithmaticExpression {
 ## 递归数据类型
 
 看到这里也许你开始担忧了。什么是递归数据结构（Recursive Data Type）？
+
+这里我们要拿前面提到的一个例子来说事儿了。
+
+![list](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Cons-cells.svg/320px-Cons-cells.svg.png)
+
+看这张图，去掉这个list的第一个节点，结果得到的还是一个list。同样地，在这个节点上面再加一个节点，得到的也依然还是一个list。
+
+也就是说，这个list的每一个节点大概对应到下面的结构：
+```c++
+struct ListNode{
+    int value;
+    ListNode* next;
+}
+```
+
+我们试着用这个结构建立一个列表。
+```
+ListNode a{1, nullptr};
+ListNode b{2, &a};
+ListNode c{3, &b};
+```
