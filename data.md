@@ -106,7 +106,7 @@ struct ArithmaticExpression {
 struct ListNode{
     int value;
     ListNode* next;
-}
+};
 ```
 
 我们试着用这个结构建立一个列表。
@@ -115,3 +115,12 @@ ListNode a{1, nullptr};
 ListNode b{2, &a};
 ListNode c{3, &b};
 ```
+从`c`出发，我们就能够依次遍历完`b`、`a`，而且对于每一个节点，处理的方式基本一致。
+```c++
+void printList(ListNode* list) {
+    if(list == nullptr) return;
+    std::cout << list->value;
+    printList(list->next);
+}
+```
+没错，list就是递归的。每一个list节点都包含一个list的引用。这样我们就能够利用递归来对其进行操作，形成一个结构或者
