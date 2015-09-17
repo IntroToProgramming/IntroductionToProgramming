@@ -123,4 +123,4 @@ void printList(ListNode* list) {
     printList(list->next);
 }
 ```
-没错，list就是递归的。每一个list节点都包含一个list的引用。这样我们就能够利用递归来对其进行操作，形成一个结构或者
+没错，list就是递归的。每一个list节点都包含一个list的引用。这样我们就能够利用递归来对其进行操作了。
