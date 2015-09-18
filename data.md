@@ -110,7 +110,7 @@ struct ListNode{
 ```
 
 我们试着用这个结构建立一个列表。
-```
+```c++
 ListNode a{1, nullptr};
 ListNode b{2, &a};
 ListNode c{3, &b};
@@ -124,3 +124,49 @@ void printList(ListNode* list) {
 }
 ```
 没错，list就是递归的。每一个list节点都包含一个list的引用。这样我们就能够利用递归来对其进行操作了。
+
+比如我们想要构造一个新的list，也可以把他做成递归的。
+
+```c++
+struct List{
+    int value;
+    shared_ptr<List> next;
+}
+
+shared_ptr<List> make_cell(int value, shared_ptr<List> next) {
+    auto cell = make_shared<List>();
+    cell->value = value;
+    cell->next = next;
+    return cell;
+}
+
+template<class ...Args>
+shared_ptr<List> make_list(int value, Args... args) {
+    return make_cell(value, make_list(args...));
+}
+
+template<>
+shared_ptr<List> make_list(int value) {
+    return make_cell(value, nullptr);
+}
+```
+
+## 构造器（Constructor）
+
+看我们的make_cell函数，其实就是创建了一个shared_ptr，然后再利用传入的参数来对cell中的数据进行初始化。当然这意思其实已经很明确了，make_cell作为创建一个新的cell结构的函数而存在。
+
+但是这样未免太罗嗦，每次我创建一个struct的时候都要再去考虑怎么设计一个用来专门创建实例的函数。C++提供了一种叫做构造器的函数，可以简化这个过程。加入了构造器的List定义如下：
+```c++
+struct {
+    int value;
+    shared_ptr<List> next;
+    
+    List(int _value, shared_ptr<List> _next): value(_value), next(_next) {}
+}
+```
+这里的构造器是说，我接受两个参数（`_next`, `_value`），然后用这两个参数去初始化C++结构（struct）中的字段。
+
+然后我们可以把整个make_cell函数改成
+```c++
+make_shared<List>(value, next);
+```
