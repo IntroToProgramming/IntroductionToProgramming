@@ -192,3 +192,11 @@ auto user = User{"Kimmy", 18, 178.0};
 好的我们回到刚刚的List上来。
 
 我们已经可以通过make_list来创建一个整数的列表了，那么，作为一个递归的结构，我们当然也可以通过递归来对齐定义一些操作。
+
+比如把List里面的每一个元素做一个转换。
+```c++
+shared_ptr<List> transform(shared_ptr<List> list, std::function<int(int)> transformer) {
+    if(list == nullptr) return nullptr;
+    return make_list(transformer(list->value), transform(list->next, tranformer))
+}
+```
