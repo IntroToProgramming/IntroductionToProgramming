@@ -195,8 +195,13 @@ auto user = User{"Kimmy", 18, 178.0};
 
 比如把List里面的每一个元素做一个转换。
 ```c++
-shared_ptr<List> transform(shared_ptr<List> list, std::function<int(int)> transformer) {
+shared_ptr<List> 
+transform(shared_ptr<List> list, std::function<int(int)> transformer) {
     if(list == nullptr) return nullptr;
-    return make_list(transformer(list->value), transform(list->next, tranformer))
+    return make_shared<List>(transformer(list->value), transform(list->next, tranformer))
 }
+
+
+// => {-1, -2, -3, -4, -5}
+transform(make_list(1,2,3,4,5), [](int i){ return -i; });
 ```
