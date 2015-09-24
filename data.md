@@ -153,7 +153,7 @@ shared_ptr<List> make_list(int value) {
 
 ## 构造器（Constructor）
 
-看我们的make_cell函数，其实就是创建了一个shared_ptr，然后再利用传入的参数来对cell中的数据进行初始化。当然这意思其实已经很明确了，make_cell作为创建一个新的cell结构的函数而存在。
+看我们的`make_cell`函数，其实就是创建了一个`shared_ptr`，然后再利用传入的参数来对cell中的数据进行初始化。当然这意思其实已经很明确了，`make_cell`作为创建一个新的cell结构的函数而存在。
 
 但是这样未免太罗嗦，每次我创建一个struct的时候都要再去考虑怎么设计一个用来专门创建实例的函数。C++提供了一种叫做构造器的函数，可以简化这个过程。加入了构造器的List定义如下：
 ```c++
@@ -161,7 +161,8 @@ struct {
     int value;
     shared_ptr<List> next;
     
-    List(int _value, shared_ptr<List> _next): value(_value), next(_next) {}
+    List(int _value, shared_ptr<List> _next):
+        value(_value), next(_next) {}
 }
 ```
 这里的构造器是说，我接受两个参数（`_next`, `_value`），然后用这两个参数去初始化C++结构（struct）中的字段。
@@ -170,3 +171,24 @@ struct {
 ```c++
 make_shared<List>(value, next);
 ```
+构造器能够让我们以一种很直观的方式来创建和使用数据。
+比如:
+```c++
+struct User {
+    std::string name;
+    int age;
+    double height;
+    
+    User(std::string _name, int _age, double _height):
+        name(_name), age(_age), height(_height) {}
+};
+
+auto user = User{"Kimmy", 18, 178.0};
+```
+没错，这样看上去跟前面定义的Car类型没有什么区别。但是当结合上默认值参数以及需要在数据初始化的时候做一些其他操作的时候，构造器给提供了很直接的方案。后面我们会进一步地看到这种方案的优点。（当然你也可以去看一看什么是RAII。）
+
+## Fold
+
+好的我们回到刚刚的List上来。
+
+我们已经可以通过make_list来创建一个整数的列表了，那么，作为一个递归的结构，我们当然也可以通过递归来对齐定义一些操作。
