@@ -205,3 +205,7 @@ transform(shared_ptr<List> list, std::function<int(int)> transformer) {
 // => {-1, -2, -3, -4, -5}
 transform(make_list(1,2,3,4,5), [](int i){ return -i; });
 ```
+
+#### 作为数据的过程（Procedure as data）
+当然，看到上面那段代码你会是满头雾水。`std::function<int(int)>`是什么，`[](){}`放在一起又是什么。
+
