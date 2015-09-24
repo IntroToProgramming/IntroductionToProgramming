@@ -187,7 +187,7 @@ auto user = User{"Kimmy", 18, 178.0};
 ```
 没错，这样看上去跟前面定义的Car类型没有什么区别。但是当结合上默认值参数以及需要在数据初始化的时候做一些其他操作的时候，构造器给提供了很直接的方案。后面我们会进一步地看到这种方案的优点。（当然你也可以去看一看什么是RAII。）
 
-## Fold
+## Transform
 
 好的我们回到刚刚的List上来。
 
@@ -212,4 +212,35 @@ transform(make_list(1,2,3,4,5), [](int i) -> int { return -i; });
 回过头去想想，我们是不是可以定义一些过程，然后对这个过程进行调用，去做一些复杂的计算？同时，当我们需要进一步利用这些过程的时候，可以把它们直接当成数据拿来用的。于是我们可以约束他们的类型，然后根据这些约束再进一步地做抽象。
 
 比如第三章中的pow，类型就是`std::function<int(int, int)>`，接收两个整数，返回他们的乘方，结果也是整数。
+
+而有些时候我们可能并不只是需要拿已经就有的过程来简单地做抽象，所以更有必要提供一种方式让我们随时都能够创建一个过程。于是C++给我们提供了Lambda表达式（Lambda Expression，在其他语言里面也可能叫做匿名函数/过程，Anonymous Function/Procedure），比如
+```c++
+auto negate=[](int i) -> int{ return -i; };
+```
+我们就地创建了一个lambda表达式，然后把它赋值给了negate。这个lambda表达式所表示的就是一个匿名过程，它会接收一个整数，然后返回这个数的相反数。
+
+于是当我们再去回过头看transform的时候，就不会觉得太突兀了。
+```c++
+shared_ptr<List> 
+transform(shared_ptr<List> list, std::function<int(int)> transformer) {
+    if(list == nullptr) return nullptr;
+    return make_shared<List>(transformer(list->value), transform(list->next, tranformer))
+}
+```
+transform接收一个List和一个`int(int)`类型的transformer，然后在这个List上递归地对每一个元素执行transformer，得到一个新的结果，然后组成一个新的List。
+
+## 树
+
+好的我们来看另外一种递归数据类型，树。更确切地说，是二叉树（Binary Tree）。
+```
+struct Tree {
+    int value;
+    shared_ptr<Tree> left;
+    shared_ptr<Tree> right;
+
+    Tree(int _v, shared_ptr<Tree> _l, shared_ptr<Tree> _r): 
+        value(_v), left(_l), right(_r) {}
+};
+```
+也就是说，Tree是这种结构，他的左侧是Tree，右侧也是Tree。而且Tree的每个节点都会带有一个value。
 
