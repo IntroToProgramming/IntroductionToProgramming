@@ -334,3 +334,28 @@ path            description
 可以看到，每次当遇到无法继续的节点，都会有一步回退操作，其实就是把path中加入进去内容的再取出来，这种一般最后进入但是最先退出（Last In First Out，LIFO）的结构我们常常称作是栈（stack）。栈通常会用来辅助实现一些拥有LIFO特性的过程，比如过程调用，也有一个对应的调用栈（call stack）。
 
 比如当我们调用递归函数pow(2, 5)，对应的调用栈展开如下：
+```c++
+pow(2, 5)                 => 2 * 2 * 2 * 2 * 2
+    pow(2, 4)             => 2 * 2 * 2 * 2
+        pow(2, 3)         => 2 * 2 * 2
+            pow(2, 2)     => 2 * 2
+                pow(2, 1) => 2
+```
+这也就是在第三章我提到“栈溢出”中的“栈”的含义。当一个调用栈太大而超出了当前系统规定的范围以后，就会造成这种问题。
+
+我们接下来看BFS，模拟一下它查找3的流程：
+```c++
+path            description
+==========      ========== 
+*               //step 1
+* + 4           //push childs and move to next
++ 4             //step 2
++ 4 1 -         //push childs and move to next
+4 1 -           //step 3 no childs move to next
+1 -             //step 4 no childs move to next
+-               //step 5
+- 2 3           //push childs and move to next
+2 3             //step 6 no childs move to next
+3               //step 7 found!
+```
+与DFS的后进先出不同的是，BFS会把先放入的东西给拿出去，也就是先进先出（First In First Out，FIFO）。用于实现FIFO的结构我们一般叫做队列（queue）。
