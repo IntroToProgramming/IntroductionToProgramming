@@ -10,4 +10,38 @@
 
 简单地讲，就是面向对象会通过一种方式来定义一些共有的接口和符合接口的操作，然后通过对这些接口的实现来完成一些具有公共特性但细节上略有不一致的行为。
 
-当然，
+先看一个简单的例子。
+
+不同的车（Vehicle）都可以走（Run），包括汽车（Car）、卡车（Truck）、推车（Wagon）等等。
+
+我们可以简单地描述这种关系：
+```c++
+// Pseudo code
+interface Vehicle {
+    void Run();
+}
+
+class Car is Vehicle {
+    void Run() override { ... }
+}
+
+class Truck is Vehicle {
+    void Run() override { ... }
+}
+
+class Wagon is Vehicle {
+    void Run() override { ... }
+}
+
+
+Vehicle v = new Car{} // or new Wagon/Truck
+
+v->Run(); // run specific Run prodeure
+```
+
+## 基于继承（Inheritance）的多态
+
+
+
+## 基于泛型（Generics）的多态
+
