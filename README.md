@@ -17,21 +17,15 @@
 ## 更新状态
 
  * 第一章 环境搭建 (done)
-   + 练习
  * 第二章 计算 Computation (done)
-   + 练习
  * 第三章 过程 Procedural (done)
-   + 练习
  * 第四章 编码 Encoding (done)
-   + 练习
  * 第五章 序列 Sequence (done)
-
  * 第六章 引用 Reference (partial, by [CHE](http://github.com/CUITCHE))
-
- * 第七章 数据 Data (prepared)
- * 第八章
- * 第九章
- * 第十章
+ * 第七章 数据 Data (done)
+ * 第八章 状态 State (prepared)
+ * 第九章 闭包
+ * 第十章 对象 Object (prepared)
  * 第十一章
  * 第十二章
  * more...
