@@ -1,7 +1,6 @@
 # Summary
 
 * [简介](README.md)
-  + [1](test/1.md)
 * [环境搭建](environment.md)
 * [编码](encoding.md)
 * [计算](computation.md)
