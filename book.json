@@ -1,6 +1,12 @@
 {
     "gitbook": ">=2.0.0",
     "plugins": [
-        "mathjax"
-    ]
+        "mathjax", "atoc"
+    ],
+    "pluginsConfig": {
+        "atoc": {
+            "addClass": true,
+            "className": "atoc"
+        }
+    }
 }
