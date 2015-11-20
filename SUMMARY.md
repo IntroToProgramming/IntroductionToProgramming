@@ -2,9 +2,9 @@
 
 * [简介](README.md)
 * [环境搭建](environment.md)
-* [编码](encoding.md)
 * [计算](computation.md)
 * [过程](procedure.md)
+* [编码](encoding.md)
 * [序列](sequence.md)
 * [引用](reference.md)
 * [数据](data.md)
