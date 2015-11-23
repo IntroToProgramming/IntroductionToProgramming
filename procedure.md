@@ -161,7 +161,7 @@ int pow(int x, int y) {
 
 我们先简单的把这个实现写出来吧。
 
-```
+```c++
 int pow(int x, int y, int prod = 1) {
     return (y == 0) ? prod : pow(x, y-1, prod*x);
 }
