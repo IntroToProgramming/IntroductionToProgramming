@@ -8,7 +8,7 @@
     * [tdca-i2p@qq.com](mailto:tdca-i2p@qq.com?subject=Feedback for i2p-book)
     * 或关注我的微信公众号：ki2mmy
 
-我们并不是在讲述C++这门编程语言，只是通过C++和其提供的丰富的方便特性，来讲述关于“程序设计”的内容。主要参考的数目是《计算机程序构造与解释》和《编程原本》。
+我们并不是在讲述C++这门编程语言，只是通过C++和其提供的丰富的方便特性，来讲述关于“程序设计”的内容。主要参考的书目是《计算机程序构造与解释》和《编程原本》。
 
 任何与C++细节相关的东西，可以参考[C++ Reference](http://en.cppreference.com/w/)或者Bjarne Stroustrup的《The C++ Programming Language(4th Edition)》，对于特定的主题，我也会专门列出可以参阅的链接。[StackOverflow](http://stackoverflow.com/questions/tagged/c%2b%2b)上也有丰富的资源来解答你的疑惑。如果要深入学习C++，推荐你去看我的私货：[C++: From Novice to Professional](http://www.douban.com/doulist/4041785/)。
 
@@ -30,13 +30,17 @@
  * 第十二章
  * more...
 
-## 支持我：
+## 参与贡献
 
-##### 关注我的公众号获取更新：
+本书的源码托管在[github:kenpusney/i2p-the-book](https://github.com/kenpusney/i2p-the-book)仓库，你可以提交issue或者pull request贡献和改进本书。
+
+## 支持我
+
+#### 关注我的公众号获取更新：
 
 <img alt="微信公众号" src="http://lisp.kimleo.net/images/qrcode_for_gh_5d5d484e7445_430.jpg" width="256"/>
 
-##### 通过支付宝资助我创作：
+#### 通过支付宝资助我创作：
 
 ![支付宝](https://mobilecodec.alipay.com/show.htm?code=ap69z5d4uik0zvec89&picSize=S)
 
@@ -46,4 +50,5 @@
 
 ###### 特别感谢以下朋友的资助
   - [esrever10](https://github.com/esrever10)
-  - karakapi
+  - [karakapi](https://github.com/karakapi)
+  - [负一的平方根](http://sqrt-1.me)
