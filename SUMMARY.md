@@ -1,6 +1,6 @@
 # Summary
 
-* [简介](README.md)
+* [引言](README.md)
 * [环境搭建](environment.md)
 * [计算](computation.md)
 * [过程](procedure.md)
