@@ -52,3 +52,4 @@
   - [esrever10](https://github.com/esrever10)
   - [karakapi](https://github.com/karakapi)
   - [负一的平方根](http://sqrt-1.me)
+  - [linkgod](http://www.linkgod.net)
