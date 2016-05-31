@@ -127,7 +127,7 @@ std::string s = f();  // undefined behavior: copy-initializes from a dangling re
 
 std::string& f()
 {
-    std::string s = "Example";
+    auto s = make_shared<string>("Example");
     return s; // exits the scope of s:
               // its destructor is called and its storage deallocated
 }
