@@ -38,7 +38,7 @@
 
 当然在引用出现之前，复制做到这么简单易懂是最好的了。
 
-### 引用
+### 指针
 
 试想这样一个结构：一个长度为100，array其元素的类型是一个长度为100的32位整数array。也就是`array<array<int, 100>, 100>`。大致看上去可以当成一个$$100\times100$$的矩阵。
 
@@ -55,7 +55,8 @@ matrix_t matrix {};
 matrix_t* matrix_pointer = &matrix;
 ```
 
-`using`关键字可以帮我们把`array<array<int, 100>, 100>`做一个简单的重命名，不用每次都写成这样一堆。而
+`using`关键字可以帮我们把`array<array<int, 100>, 100>`做一个简单的重命名，不用每次都写成这样一堆。而`matrix_t*`就是matrix_t类型对应的指针类型。
+
 
 [^1]: https://en.wikipedia.org/wiki/Reference_(computer_science)
 [^2]: http://en.cppreference.com/w/cpp/language/reference
