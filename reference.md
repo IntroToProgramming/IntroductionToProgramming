@@ -133,9 +133,9 @@ std::shared_ptr<std::string> f()
     return s;
 }
  
-std::shared_ptr<std::string> r = f(); // dangling reference
-std::cout << *r;       // undefined behavior: reads from a dangling reference
-std::string s = *f();  // undefined behavior: copy-initializes from a dangling reference
+std::shared_ptr<std::string> r = f();
+std::cout << *r;
+std::string s = *f();
 ```
 
 ## 引用的复杂性
