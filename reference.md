@@ -13,8 +13,25 @@
 同样地也有之前我们提到的两个问题：要么，对方更新了你得不到同步；要么双方之间通过一个位置信息做关联，但实际的数据丢失了。
 
 
+## 引用与复制
+
+其实我们可以简单地把程序运行的内存空间看做一个由字节组成的特别大的序列。每个变量其实对应到这些序列中特定的连续的一段空间。
+
+比如：
+
+|序号|内容|
+| -- | -- |
+| 0xDEADBE01 | DE |
+| 0xDEADBE02 | AD |
+| 0xDEADBE03 | BE |
+| 0xDEADBE04 | EF |
+
+假设这段空间可以用来表示一个32的整数，同时假设编码是Big Endian[^3]的。
+
 [^1]: https://en.wikipedia.org/wiki/Reference_(computer_science)
 [^2]: http://en.cppreference.com/w/cpp/language/reference
+
+[^3]: https://en.wikipedia.org/wiki/Endianness
 
 
 
