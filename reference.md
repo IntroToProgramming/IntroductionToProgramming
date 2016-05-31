@@ -98,6 +98,22 @@ matrix_ref[0] //Just like matrix[0]
 >  
 > 条款5 引用是别名而非指针  —— *C++ Common Knowledge: Essential Intermediate Programming*（《C++必知必会》）
 
+对于入门理解“引用”的概念，这种比喻可以理解，但是C++的引用之复杂远非一个“别名”所能描述。
+
+另外，由于C++自身对于对象的生命周期检查不足，即使是使用引用也会导致一些明显的问题，例如：
+```C++
+std::string& f()
+{
+    std::string s = "Example";
+    return s; // exits the scope of s:
+              // its destructor is called and its storage deallocated
+}
+ 
+std::string& r = f(); // dangling reference
+std::cout << r;       // undefined behavior: reads from a dangling reference
+std::string s = f();  // undefined behavior: copy-initializes from a dangling reference
+```
+
 ### 智能指针
 
 ## 引用的复杂性
