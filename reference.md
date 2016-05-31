@@ -130,8 +130,7 @@ std::string s = f();  // undefined behavior: copy-initializes from a dangling re
 std::shared_ptr<std::string> f()
 {
     auto s = make_shared<string>("Example");
-    return s; // exits the scope of s:
-              // its destructor is called and its storage deallocated
+    return s;
 }
  
 std::shared_ptr<std::string> r = f(); // dangling reference
