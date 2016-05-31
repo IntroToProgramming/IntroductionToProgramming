@@ -44,6 +44,17 @@
 
 如果这样类型的两个变量之间相互赋值，参与复制的就是$$4\times100\times100$$个字节。假设每次只能复制一个字节的话，一个简单的赋值操作就要进行40000次复制。当然对于实际应用程序来说，这只是一些很小的数据，但也足够引起重视了。
 
+如果我们用前面提到的思路，只通过数据在内存这个超大的序列中的位置以及其类型来表示该数据，这样对于这种大型数据结构，我们就可以节省很多的复制时间和空间占用了。
+
+C++的指针（Pointer）就可以作为这样一种结构来达到我们期望的效果
+
+```C++
+using matrix_t = array<array<int, 100>, 100>;
+array<array<int, 100>, 100> matrix {};
+
+auto matrix_pointer = &matrix;
+```
+
 [^1]: https://en.wikipedia.org/wiki/Reference_(computer_science)
 [^2]: http://en.cppreference.com/w/cpp/language/reference
 
