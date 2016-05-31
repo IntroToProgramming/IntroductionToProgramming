@@ -182,7 +182,7 @@ Unicode包含的字符量足够的多，于是就要设计比ASCII更充分大�
 作为参考答案，你可以搜索IEEE754。
 
 
-[^1]: [《编码》](https://en.wikipedia.org/wiki/Code:_The_Hidden_Language_of_Computer_Hardware_and_Software)是来自微软的Charles Petzold的经典著作，深入浅出地讲述了计算机科学的部分基础知识。可以在[这里](http://book.douban.com/subject/4822685/)找到中文版。
+[^1]: https://en.wikipedia.org/wiki/Code:_The_Hidden_Language_of_Computer_Hardware_and_Software 《编码》是来自微软的Charles Petzold的经典著作，深入浅出地讲述了计算机科学的部分基础知识。可以在[这里](http://book.douban.com/subject/4822685/)找到中文版。
 
 [^2]: https://en.wikipedia.org/wiki/Encoding
 
