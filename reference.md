@@ -120,7 +120,23 @@ std::string s = f();  // undefined behavior: copy-initializes from a dangling re
 
 ### 智能指针
 
+智能指针有很多种，我们先来看看shared_ptr。
 
+```
+#include <memory>
+
+std::string& f()
+{
+    std::string s = "Example";
+    return s; // exits the scope of s:
+              // its destructor is called and its storage deallocated
+}
+ 
+std::string& r = f(); // dangling reference
+std::cout << r;       // undefined behavior: reads from a dangling reference
+std::string s = f();  // undefined behavior: copy-initializes from a dangling reference
+
+```
 
 ## 引用的复杂性
 
