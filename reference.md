@@ -114,6 +114,8 @@ std::cout << r;       // undefined behavior: reads from a dangling reference
 std::string s = f();  // undefined behavior: copy-initializes from a dangling reference
 ```
 
+因为C++会自动管理变量的生命周期，在f函数返回时，局部变量s已经被自动销毁并释放内存空间了，这种时候所获取到的s的引用就是悬空引用（dangling reference[6]）。
+
 ### 智能指针
 
 ## 引用的复杂性
@@ -131,5 +133,6 @@ std::string s = f();  // undefined behavior: copy-initializes from a dangling re
 [^3]: https://en.wikipedia.org/wiki/Endianness
 [^4]: https://en.wikipedia.org/wiki/Proxy_pattern
 [^5]: 《C++语言的设计与演化》
+[^6]: https://en.wikipedia.org/wiki/Dangling_reference
 
 
