@@ -10,6 +10,8 @@
 
 编程中也有类似的概念与之对应。比如你要取一个序列中的特定位置的元素，一种办法是直接取出来，复制给某一个变量。另外一种就是记录一个位置信息，每次要用的时候再去取。
 
+同样地也有之前我们提到的两个问题：要么，对方更新了你得不到同步；要么双方之间通过一个位置信息做关联，但实际的数据丢失了。
+
 
 [^1]: https://en.wikipedia.org/wiki/Reference_(computer_science)
 [^2]: http://en.cppreference.com/w/cpp/language/reference
