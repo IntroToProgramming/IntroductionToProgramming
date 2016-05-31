@@ -85,10 +85,16 @@ matrix_t* matrix_pointer = &matrix;
 
 另外，C++引用也可以看成一个高级的指针与语法糖[^5]。
 
-```
+```C++
 matrix_t matrix {};
 matrix_t& matrix_ref = matrix;
+
+matrix_ref[0] //Just like matrix[0]
 ```
+由于C++引用可以在某些方面表现上完全跟原本的对象一致，有些C++教材也会误把引用当成一种**别名**的形式。如：
+
+> 引用（reference）是c++对c 语言的重要扩充。引用就是某一变量（目标）的一个别名，对引用的操作与对变量直接操作完全一样。
+>  ———— 百度百科
 
 ### 智能指针
 
