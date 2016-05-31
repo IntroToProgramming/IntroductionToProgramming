@@ -50,9 +50,9 @@ C++的指针（Pointer）就可以作为这样一种结构来达到我们期望�
 
 ```C++
 using matrix_t = array<array<int, 100>, 100>;
-array<array<int, 100>, 100> matrix {};
+matrix_t matrix {};
 
-auto matrix_pointer = &matrix;
+matrix_t* matrix_pointer = &matrix;
 ```
 
 [^1]: https://en.wikipedia.org/wiki/Reference_(computer_science)
