@@ -57,6 +57,9 @@ matrix_t* matrix_pointer = &matrix;
 
 `using`关键字可以帮我们把`array<array<int, 100>, 100>`做一个简单的重命名，不用每次都写成这样一堆。而`matrix_t*`就是matrix_t类型对应的指针类型。
 
+比如我们希望取到matrix的第一个元素。只需要调用`matrix.at(0)`就好，同样地，利用matrix_pointer也只需要`matrix_pointer->at(0)`就可以了。这两个操作其实经历的是同样的过程，只不过matrix_pointer有一个解引用的过程：要知道这个指针表示的对象究竟是哪一个。
+
+> 对于许多纠结细节的人来说，往往会深入到“指针就是地址”这种无谓的争论中去。其实C++的指针只是一个无法保证内存安全和类型安全的代理对象。
 
 [^1]: https://en.wikipedia.org/wiki/Reference_(computer_science)
 [^2]: http://en.cppreference.com/w/cpp/language/reference
