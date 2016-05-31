@@ -125,7 +125,7 @@ std::string s = f();  // undefined behavior: copy-initializes from a dangling re
 ```
 #include <memory>
 
-std::string& f()
+std::shared_ptr<std::string>& f()
 {
     auto s = make_shared<string>("Example");
     return s; // exits the scope of s:
