@@ -122,7 +122,7 @@ std::string s = f();  // undefined behavior: copy-initializes from a dangling re
 
 智能指针有很多种，我们先来看看shared_ptr。
 
-```
+```C++
 #include <memory>
 
 std::shared_ptr<std::string> f()
