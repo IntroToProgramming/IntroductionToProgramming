@@ -86,8 +86,8 @@ matrix_t* matrix_pointer = &matrix;
 另外，C++引用也可以看成一个高级的指针与语法糖[^5]。
 
 ```
-matrix a {};
-
+matrix_t matrix {};
+matrix_t& matrix_ref = matrix;
 ```
 
 ### 智能指针
