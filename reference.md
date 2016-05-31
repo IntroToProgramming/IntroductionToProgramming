@@ -46,14 +46,16 @@
 
 如果我们用前面提到的思路，只通过数据在内存这个超大的序列中的位置以及其类型来表示该数据，这样对于这种大型数据结构，我们就可以节省很多的复制时间和空间占用了。
 
-C++的指针（Pointer）就可以作为这样一种结构来达到我们期望的效果
+C++的指针（Pointer）就可以作为这样一种结构来达到我们期望的效果：
 
 ```C++
-using matrix_t = array<array<int, 100>, 100>;
+using matrix_t = array<array<int, 100>, 100>; // alias to matrix_t
 matrix_t matrix {};
 
 matrix_t* matrix_pointer = &matrix;
 ```
+
+`using`关键字可以帮我们把`array<array<int, 100>, 100>`做一个简单的重命名，不用每次都写成这样一堆。而
 
 [^1]: https://en.wikipedia.org/wiki/Reference_(computer_science)
 [^2]: http://en.cppreference.com/w/cpp/language/reference
