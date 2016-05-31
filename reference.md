@@ -96,6 +96,8 @@ matrix_ref[0] //Just like matrix[0]
 > 引用（reference）是c++对c语言的重要扩充。引用就是某一变量（目标）的一个别名，对引用的操作与对变量直接操作完全一样。
 >  —— 百度百科
 
+> 条款5 引用是别名而非指针  —— *C++ Common Knowledge: Essential Intermediate Programming *
+
 ### 智能指针
 
 ## 引用的复杂性
