@@ -122,6 +122,8 @@ std::string s = f();  // undefined behavior: copy-initializes from a dangling re
 
 智能指针有很多种，我们先来看看shared_ptr。
 
+上节的程序其使用了shared_ptr的版本如下：
+
 ```C++
 #include <memory>
 
