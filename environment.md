@@ -6,7 +6,7 @@
 
 嗯，首先，去**洗手**。
 
-然后[点击这里](http://sourceforge.net/projects/codeblocks/files/Binaries/13.12/Windows/codeblocks-13.12mingw-setup-TDM-GCC-481.exe)下载一个用来写代码的工具，然后安装。
+然后[点击这里](http://www.codeblocks.org/downloads/binaries)下载一个用来写代码的工具，然后安装。
 
 > 人与人之间交互需要通过语言，人与计算机之间也是。按照目前的尿性，
 > 作为程序员跟计算机交流的最直接的方式就是使用编程语言来说写代码（coding）。
