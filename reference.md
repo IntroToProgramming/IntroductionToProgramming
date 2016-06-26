@@ -200,16 +200,27 @@ vco3.getBlablabla().setFoo(new Foo());
 这也是一个比较糟心的问题。
 先看代码吧。
 ```c++
-struct IntNode {
+struct Node {
     int value;
-    shared_ptr<IntNode> next;
+    shared_ptr<Node> next;
+};
+void f() {
+    auto first = make_shared<Node>(1, null_ptr);
+    auto second = make_shared<Node>(2, first);
+    first->next = second;
 }
-auto first = make_shared(1, null_ptr);
-auto second = make_shared(2, first);
-first->next = second;
 
-
+f();
 ```
+我们构造了两个Node对象（下一节可以看到，这是单链表典型的结构）。其中，first的next属性引用了second，而second的next属性又引用回了first。
+
+这样就构成了一个环。也就是循环引用（Circular Reference）的名字的来源。
+
+在这段代码执行完函数f返回的时候，first和second两个变量的生命周期就结束了，于是这两个智能指针会被释放和回收，他们所引用的资源的引用计数也会减一，然后……
+
+没有然后了。
+
+对应的两个Node对象不会被回收。因为两个对象之间相互被引用着，他们各自的引用计数都没有恢复成0，所以无法被回收。于是这两个尴尬的对象就又成为了被泄漏的内存资源。
 
 ### 自动资源管理
 
