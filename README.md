@@ -26,7 +26,7 @@
 
 我们并不是在讲述C++这门编程语言，只是通过C++和其提供的丰富的方便特性，来讲述关于“程序设计”的内容。任何与C++细节相关的东西，可以参考[C++ Reference](http://en.cppreference.com/w/)或者Bjarne Stroustrup的《The C++ Programming Language(4th Edition)》，对于特定的主题，我也会专门列出可以参阅的链接。[StackOverflow](http://stackoverflow.com/questions/tagged/c%2b%2b)上也有丰富的资源来解答你的疑惑。如果要深入学习C++，推荐你去看我的私货：[C++: From Novice to Professional](http://www.douban.com/doulist/4041785/)。
 
-任何一个编程语言需要特定的运行环境，如果你已经拥有Visual Studio 2013(update 4)以及以上的版本，或者拥有一个支持 gcc4.8+ / clang3.1+ 编译套件的环境，我们需要改环境至少支持[C++11（ISO/IEC 14882:2011）](https://en.wikipedia.org/wiki/C%2B%2B11)。如果你还没有，或者不确定是否拥有符合条件的编译环境，我们推荐你去下载[Visual Studio 2015 Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs)或者参考我们的第一章内容设置Code::Blocks。
+任何一个编程语言需要特定的运行环境，如果你已经拥有Visual Studio 2013(update 4)以及以上的版本，或者拥有一个支持 gcc4.8+ / clang3.1+ 编译套件的环境，我们需要改环境至少支持[C++11（ISO/IEC 14882:2011）](https://en.wikipedia.org/wiki/C%2B%2B11)。如果你还没有，或者不确定是否拥有符合条件的编译环境，我们推荐你去下载[Visual Studio 2015 Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs)或者[Code::Blocks](http://www.codeblocks.org/downloads/binaries)，对于Mac用户，建议你可以使用Xcode IDE。当然如果您更偏好使用心爱的编辑器写代码然后在终端编译的话，也是值得一试的。
 
 ## 更新状态
 
