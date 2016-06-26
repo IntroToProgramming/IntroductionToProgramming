@@ -150,7 +150,7 @@ shared_ptr通过引用计数的方式来管理对象的生命周期，也即通�
 ### 再谈复制
 
 前面提到，复制其实可以简单到只是一块块地把字节放到另外一个地方就可以了。当然如果是raw pointer的话，我们也可以简单地这样做：
-```
+```c++
 int x = 10;
 int* y = &x;
 int* z = y;
@@ -158,13 +158,58 @@ int* z = y;
 本质上也只是把y里面几个字节的内容复制到了z那儿。
 
 但是我们说了，raw pointer是靠不住的：要么资源泄漏了，要么指针悬空了。所以我们才请smart pointer来帮忙。
+```C++
+auto x = make_shared<int>(10);  // Construct resource & assigned to x
+auto y = x;  // Ref to resource, and increase the ref count
 ```
-auto x = make_shared<int>(10);
-auto y = x;
-```
+对于智能指针来说，要么，需要转移所有权，要么需要做引用计数的改变。这个时候复制的过程其实包含了一大堆的检查和处理：这其实也可以理解为啥C++要有Copy Constructor和Copy Assignment Operator了。
 
+还有一点也是很重要的，当然这种事情通常发生在默认采用引用语义的语言中：如果对一个层次比较深的复杂的对象做拷贝，结果得到的很有可能不是你期待的结果。
+
+比如下面的Java代码：
+```java
+class VeryComplexObject {    
+    SomeObject blablabla;
+    
+    ...
+    public VeryComplexObject clone() {
+        VeryComplexObject vco = new ...;
+        vco.setBlablabla(this.getBlablabla());
+        ...
+    }
+}
+
+VeryComplexObject vco = VeryComplexObjectBuilder().build();
+VeryComplexObject vco2 = vco;
+VeryComplexObject vco3 = vco.clone();
+```
+在Java中，所有的非基本类型的变量都是特定对象实例的引用。所以他们之间相互赋值的结果其实跟C++中raw pointer赋值没什么太多本质上的区别。所以vco2其实跟vco一模一样没有什么改动。
+
+那vco3就有什么不同了吗？没有。
+
+表面上看似乎创建了一个新的对象然后把vco所有的属性都重新设置给了新的对象。但还是因为本质上是引用语义的原因，vco和vco3的blablabla属性还是对应的同一个对象实例。也就是说：
+```java
+vco3.getBlablabla().setFoo(new Foo());
+```
+这句代码同样地会影响vco的blablabla属性的foo属性。
+
+这就是Java中常提到的Shallow Copy和Deep Copy的问题，这种只是把属性重新set一遍的做法就是所谓的Shallow Copy（**浅拷贝**）。于是最终也引出了一个Cloneable和obj.clone()方法，作为一个约定来进行Deep Copy。跟C++的Copy Ctor和Copy Assignment Operator也算是殊途同归吧。
 
 ### 循环引用
+
+这也是一个比较糟心的问题。
+先看代码吧。
+```c++
+struct IntNode {
+    int value;
+    shared_ptr<IntNode> next;
+}
+auto first = make_shared(1, null_ptr);
+auto second = make_shared(2, first);
+first->next = second;
+
+
+```
 
 ### 自动资源管理
 
