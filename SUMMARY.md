@@ -1,7 +1,7 @@
 # Summary
 
 * [引言](README.md)
-* [环境搭建](environment.md)
+* [环境](environment.md)
 * [计算](computation.md)
 * [过程](procedure.md)
 * [编码](encoding.md)
