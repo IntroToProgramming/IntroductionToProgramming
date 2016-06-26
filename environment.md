@@ -14,7 +14,10 @@
 
 我们来看一下作为计算机，可以怎样地对环境进行划分。
 
-首先是平台（Platform）。这样一个简单的词表示了一堆信息的组合：操作系统类型和版本号以及微处理器架构：比如Linux-3.7-x86，Windows 10 (64bit)，Mac OS X El Captain。
+首先是平台（Platform）。这样一个简单的词表示了一堆信息的组合：操作系统类型和版本号以及微处理器架构：比如Linux-3.7-x86，Windows 8.1 (64bit)，Mac OS X El Captain。
+
+当然这里的某些信息是隐含的。
+Linux/Windows/Mac OS X可以看成是不同的系统类型。3.7，8.1和El Captain则是系统版本（Version）。x86、64bit（Windows 8.1只针对x86-64有64位版）、El Captain（Mac OS X只发布了针对x86-64微处理器架构的版本）则可以看出来微处理器架构。
 
 
 
