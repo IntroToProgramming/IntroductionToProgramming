@@ -30,7 +30,7 @@
 
 ## 更新状态
 
- * 第一章 环境搭建 (done)
+ * 第一章 环境 (rewriting)
  * 第二章 计算 Computation (done)
  * 第三章 过程 Procedural (done)
  * 第四章 编码 Encoding (done)
