@@ -3,7 +3,12 @@
     "plugins": [
         "mathjax",
         "todo",
-        "betterchinese"
+        "betterchinese",
+        "ga"
     ],
-    "pluginsConfig": {}
+    "pluginsConfig": {
+        "ga": {
+            "token": "UA-51073473-3"
+        }
+    }
 }
