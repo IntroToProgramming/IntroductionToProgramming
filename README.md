@@ -67,3 +67,4 @@
   - [karakapi](https://github.com/karakapi)
   - [负一的平方根](http://sqrt-1.me)
   - [linkgod](http://www.linkgod.net)
+  - [shellvon](https://github.com/shellvon) & [tingoo](https://github.com/tingoo)
