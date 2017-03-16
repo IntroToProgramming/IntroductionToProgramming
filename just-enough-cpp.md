@@ -11,8 +11,17 @@
 #include <string>
 
 int main() {
-    std::string name = "Kimmy Leo";
-    std::cout << "hello " << name;
+    std::string kimmy {"Kimmy Leo"};
+    std::cout << "hello " << kimmy;
 }
 ```
 
+我们从每一行入手来分析这个程序。
+第1、2行是以`#`打头的两个`include`预处理指令。C++通过头文件（header file）的方式来对外提供和引用第三方接口（interface），`iostream`和`string`就是C++标准库中的两个头文件。`include`指令就是告诉编译器把这两个文件的内容包含到当前程序中来，因为里面有我们所需要的内容的声明（declaration）。
+
+第4行开始定义了一个名字为`main`的函数，这个函数返回值为int，参数列表（在`()`之间的内容）为空。`{`表示函数体的开始，直到第7行的`}`符号结束。
+
+第5行声明了一个`std::string`（C++标准库的字符串）类型的变量，变量名叫做`kimmy`，花括号之间的内容就是这个变量的值，也即，内容为`Kimmy Leo`的字符串。C++中，通过`"`来包括字符串，来避免与其他符号混淆。
+第6行，我们调用标准输出流`std::cout`，通过流输出运算符`<<`来输出两个字符串的内容：一个是字符串字面量：`"hello "`，另一个是字符串变量`kimmy`。
+
+其中`std`表示我们引用的是命名空间（namespace）`std`下面的符号，std是standard的简写，表示C++的标准库。`::`作为分隔符来连接不同的符号，以形成访问关系。
