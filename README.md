@@ -56,19 +56,18 @@ description: 什么是编程？为什么需要编程？编程解决了哪些问�
 
 ### 关注我的公众号获取更新：
 
-![&#x5FAE;&#x4FE1;&#x516C;&#x4F17;&#x53F7;](http://wiki.kimleo.net/images/qrcode_for_gh_5d5d484e7445_430.jpg)
+<img alt="微信公众号" src="http://kimleo.net/qrcode_for_gh_5d5d484e7445_344.jpg" width="256"/>
 
-### 通过支付宝资助我创作：
+#### 资助我创作：
 
-![&#x652F;&#x4ED8;&#x5B9D;](https://mobilecodec.alipay.com/show.htm?code=ap69z5d4uik0zvec89&picSize=S)
+支付宝二维码：
+或点击[我的 Paypal 链接](http://paypal.me/kenpusney)给予帮助。
 
-或点击给予帮助。
+###### 特别感谢以下朋友的资助
 
-#### 特别感谢以下朋友的资助
-
-* [esrever10](https://github.com/esrever10)
-* [karakapi](https://github.com/karakapi)
-* [负一的平方根](http://sqrt-1.me)
-* [linkgod](http://www.linkgod.net)
-* [shellvon](https://github.com/shellvon) & [tingoo](https://github.com/tingoo)
+  - [esrever10](https://github.com/esrever10)
+  - [karakapi](https://github.com/karakapi)
+  - [负一的平方根](http://sqrt-1.me)
+  - [linkgod](http://www.linkgod.net)
+  - [shellvon](https://github.com/shellvon) & [tingoo](https://github.com/tingoo)
 
