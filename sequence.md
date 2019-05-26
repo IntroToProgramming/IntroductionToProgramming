@@ -3,11 +3,14 @@
 你应该记得，我们在编码那一张提过如何表示多个数字的，没错，定长编码可以帮我们解决这个问题，帮我们界定数字之间的边界。但是，当我们要表示的数据不只是一组的时候，又该怎么来界定边界？
 
 比如，我们有两组数，分别是$$1,3,5,7,9,11$$和$$0,2,4,6,8,10$$，假设以一个字节（十六进制）表示的话，就是下面这个样子的：
-```c++
+
+```cpp
 0x01030507 0x090B0002 0x0406080A
 ```
+
 好的，接下来请完成以下任务：
- - 找到第二个序列中的第三个数。
+
+* 找到第二个序列中的第三个数。
 
 嗯，是不是感觉自己傻逼了，如果不知道第一组有几个的话你是不可能准确找到这个数字的。
 
@@ -21,12 +24,13 @@
 
 我们可以看到，界定一个序列，必须要知道的是两点，第一个是他的起始元素，第二个就是这个序列的长度。
 
-一般来说，当这个序列的长度固定不变，并且每个元素是挨在一起的时候，我们常把它叫做array[^1]。
+一般来说，当这个序列的长度固定不变，并且每个元素是挨在一起的时候，我们常把它叫做array。
 
 > 关于array，我非常不喜欢“数组”这个翻译，因为这里面并不一定是数，也有可能是符，所以我会尽可能地使用array来表示它。
 
 在C++中，定义一个[array](http://en.cppreference.com/w/cpp/container/array)如下：
-```c++
+
+```cpp
 // to import "array" symbol
 #include <array>
 #include <cstdio>
@@ -40,6 +44,7 @@ int main() {
     }
 }
 ```
+
 上面那段代码中，我们定义了一个长度为5的int array，然后遍历并将其每一个元素输出。（在有些地方，创建array的时候你可能也会看到`int nums[5] = {1, 2, 3, 4, 5};`这种古典的写法）。
 
 对于array来讲，初始元素是方括号中的取值为0的时候的值。在方括号中的值我们称之为index（**索引**，奇葩翻译一般叫做**下标**）。这些索引以数字的形式出现，作为序号来表示数据在序列中的位置。
@@ -47,18 +52,23 @@ int main() {
 有个重点是，这里的索引是从$$0$$开始，最大是$$序列长度-1$$，这其实也就是为什么我们在第三章讲过程的时候提到循环的写法的一个原因。
 
 不过对于遍历序列来说还支持另外一种写法。
-```c++
+
+```cpp
 array<int,5> nums = {1, 2, 3, 4, 5};
 for(auto item: nums) {
     printf("%d ", item);
 }
 ```
+
 不需要你去管什么索引了，这样子写就像是在说
-```c++
+
+```cpp
 对于 nums 里面的 item
     输出 item 的值
 ```
-当然，在Python[^2]中看起来更自然：
+
+当然，在Python中看起来更自然：
+
 ```python
 for item in nums:
     print(item)
@@ -72,8 +82,9 @@ for item in nums:
 
 所以，即便没有长度，如果我们知道了序列的最终位置的话，也能确定这整个序列的边界。
 
-串（String[^3]）就是这样一种结构。特别地，虽然C++对其做了一层包装，本质上string还是Null-terminated，也就是说使用空字符（NUL，ASCII 0x00）来标示串的结尾。
-```c++
+串（String）就是这样一种结构。特别地，虽然C++对其做了一层包装，本质上string还是Null-terminated，也就是说使用空字符（NUL，ASCII 0x00）来标示串的结尾。
+
+```cpp
 // import "string"
 #include <string>
 #include <cstdio>
@@ -87,9 +98,10 @@ int main() {
     printf("%s ", hello.c_str());
 }
 ```
-第一个串`shit`是比较古典的创建一个**字符**串[^4]的方法，其实就是一个字符组成的array，然后最后一个'\0'（表示ASCII为0的字符，也就是NUL）标记了这是字符串的结尾。
 
-第二个`hello`是直接创建一个string，对于`"hello world"`，只是`{'h', 'e', ..., 'r', 'l', 'd', '\0'}`的简化后的更便捷的写法（也叫语法糖 Syntactic Sugar[^5]，意为使用起来更加方便简单的语法）。
+第一个串`shit`是比较古典的创建一个**字符**串的方法，其实就是一个字符组成的array，然后最后一个'\0'（表示ASCII为0的字符，也就是NUL）标记了这是字符串的结尾。
+
+第二个`hello`是直接创建一个string，对于`"hello world"`，只是`{'h', 'e', ..., 'r', 'l', 'd', '\0'}`的简化后的更便捷的写法（也叫语法糖 Syntactic Sugar，意为使用起来更加方便简单的语法）。
 
 其实你可以试试把`shit`里面的那个`\0`去掉，再编译运行看看结果，这个时候你们离打印出“烫烫烫”不远了。
 
@@ -98,7 +110,8 @@ int main() {
 这样也就很方便的在不确定长度的情况下也能表示一串数据了。
 
 一个实际的例子，比如我们想要把两个字符串连接起来，于是我们可以这样定义一个函数来处理：
-```c++
+
+```cpp
 void string_cat(char a[], char b[]) {
     int i = 0;
     while(a[i++]) {}
@@ -107,15 +120,18 @@ void string_cat(char a[], char b[]) {
     while((a[i++]=b[j++])) {}
 }
 ```
+
 是不是被萌哭了？
 
 没关系，你暂时理解不了的话我不会怪你的。只要看看我们用它得到的结果就知道了：
-```c++
+
+```cpp
 char a[256] = "hello ";  // just for avoid index out of range
 char b[] = "world";
 string_cat(a,b);
 printf("%s",a);
 ```
+
 Bingo！屏幕上显示出了"hello world"！
 
 我们的`string_cat`函数在没有任何“长度”概念的情况下完成了两个字符串的链接。这就是“串”这种序列结构的魅力。
@@ -142,7 +158,7 @@ Bingo！屏幕上显示出了"hello world"！
 
 ![list](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Cons-cells.svg/320px-Cons-cells.svg.png)
 
-这种结构被称为链接列表（也叫链表，Linked List[^6]，在C++中称为forward_list）在上世纪五十年代就已经设计用于实际的程序。链表这种结构非常的灵活，可以很轻松的在任意位置添加或者删除数据。因为并不需要内存结构上的连续，所有的位序关系都是靠前一个元素和后一个元素之间的链接关系来确定，而添加或者删除数据只要改变一下这种链接关系就可以了。
+这种结构被称为链接列表（也叫链表，Linked List，在C++中称为forward\_list）在上世纪五十年代就已经设计用于实际的程序。链表这种结构非常的灵活，可以很轻松的在任意位置添加或者删除数据。因为并不需要内存结构上的连续，所有的位序关系都是靠前一个元素和后一个元素之间的链接关系来确定，而添加或者删除数据只要改变一下这种链接关系就可以了。
 
 但是对于链表来说一个很大的问题就是访问数据。比如我们要访问链表的第n个元素的时候，对于array和串这种结构来说，因为内存空间上是连续的，直接做一次加法就能找到，但是对于链表来说每次都要从第一个元素开始找起。而且，这种形式的链表又称作单链表（Singly Linked List），是没有办法从尾部往头部走的。
 
@@ -167,10 +183,12 @@ Bingo！屏幕上显示出了"hello world"！
 总结下来就是，序列是线性的（Linear）、有序的（Ordered，类比“排序过的（Sorted）”）和有穷的（Finite）。
 
 ## 迭代器
+
 既然所有的序列都满足线性有序有穷这些特性，那么也就意味着我们能够把他们的一些类似的操作统一起来进行处理。
 
 比如我们期望有这样一种操作，能够把一个序列中的所有元素的值输出：
-```c++
+
+```cpp
 list<int> aList = { 2, 8, 3, 1 };
 array<int, 4> anArray = { 9, 5, 0, 7 };
 string aString = "hello world";
@@ -179,10 +197,12 @@ print(aList);
 print(anArray);
 print(aString);
 ```
+
 迭代器（Iterator）就是这样一种东西，让你忽略不同类型的序列之间的差异，只利用他们的迭代器做一些公共的操作。
 
 比如我们的print函数就可以这样实现。
-```c++
+
+```cpp
 #include <iostream>
 
 template <typename Sequence>
@@ -191,6 +211,7 @@ void print(const Sequence& sequence) {
         std::cout << *iter << std::endl;
 }
 ```
+
 其中，`template <typename Sequence>`表示Sequence可能是任意一种类型，至于具体会是什么类型，会在print调用的时候推导出来。比如`print(aList)`的时候，`Sequence`就会是`std::list<int>`，在另外两种情况下，会是`std::array<int, 4>`或`std::string`。
 
 于是这样我们就能够拿`Sequence`来表示这些调用的时候可能会遇到的不同的序列，来定义`print`函数。其中，`const Sequence& sequence`是说，`print`函数接收的是一个Sequence类型的常引用（`const` Reference，关于引用的更多话题，我们会在后面讨论），这样做是为了提高传递参数的效率。
@@ -201,13 +222,11 @@ void print(const Sequence& sequence) {
 
 ## Iterator Categories
 
-很多时候，只有向前移动到下一个元素这种操作并不能满足我们的要求（所以才有双链表比单链表更常用），有时候我们更需要迭代器会倒带（`iter--`）。但是在有些序列（像forward_list，单链表）上，这种操作根本不能实现。所以，对于迭代器，也就要有一种分类。
+很多时候，只有向前移动到下一个元素这种操作并不能满足我们的要求（所以才有双链表比单链表更常用），有时候我们更需要迭代器会倒带（`iter--`）。但是在有些序列（像forward\_list，单链表）上，这种操作根本不能实现。所以，对于迭代器，也就要有一种分类。
 
- - 第一种迭代器就是最简单的，可以向下一个元素迭代，叫做**ForwardIterator**。
-
- - 第二种当然就是能够向上一个元素迭代，一个迭代器既是Forward又是Backward，那么就叫做**BidirectionalIterator**（双向迭代器）。
-
- - 第三种能够直接访问到当前迭代器对应向下第n个元素，这个时候迭代器也可以直接用索引进行访问，一个迭代器既可以双向迭代，又可以直接索引访问，就叫做**RandomAccessIterator**。
+* 第一种迭代器就是最简单的，可以向下一个元素迭代，叫做**ForwardIterator**。
+* 第二种当然就是能够向上一个元素迭代，一个迭代器既是Forward又是Backward，那么就叫做**BidirectionalIterator**（双向迭代器）。
+* 第三种能够直接访问到当前迭代器对应向下第n个元素，这个时候迭代器也可以直接用索引进行访问，一个迭代器既可以双向迭代，又可以直接索引访问，就叫做**RandomAccessIterator**。
 
 这种分类的关键在于不同的算法的适用范围。
 
@@ -219,14 +238,3 @@ void print(const Sequence& sequence) {
 
 请参阅Wikipedia对LCS问题的分析和讨论，尝试实现求LCS的算法，并试分析该算法要求迭代器至少要属于哪个category。
 
-[^1]: https://en.wikipedia.org/wiki/Array_data_structure
-
-[^2]: https://en.wikipedia.org/wiki/Python_%28programming_language%29
-
-[^3]: https://en.wikipedia.org/wiki/String_%28computer_science%29
-
-[^4]: 大部分情况下，我们所遇到的“串”都是字符串，虽然C++里面你也可以拿[其他的东西](http://en.cppreference.com/w/cpp/string/basic_string)作为“串”来玩。
-
-[^5]: https://en.wikipedia.org/wiki/Syntactic_sugar
-
-[^6]: https://en.wikipedia.org/wiki/Linked_list

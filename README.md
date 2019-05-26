@@ -1,3 +1,7 @@
+---
+description: 什么是编程？为什么需要编程？编程解决了哪些问题？覆盖了哪些重要的概念？
+---
+
 # 引言
 
 ## 编程
@@ -24,25 +28,25 @@
 
 本书选择使用C++来讲述编程中的各种思想和概念。
 
-我们并不是在讲述C++这门编程语言，只是通过C++和其提供的丰富的方便特性，来讲述关于“程序设计”的内容。任何与C++细节相关的东西，可以参考[C++ Reference](http://en.cppreference.com/w/)或者Bjarne Stroustrup的《The C++ Programming Language(4th Edition)》，对于特定的主题，我也会专门列出可以参阅的链接。[StackOverflow](http://stackoverflow.com/questions/tagged/c%2b%2b)上也有丰富的资源来解答你的疑惑。如果要深入学习C++，推荐你去看我的私货：[C++: From Novice to Professional](http://www.douban.com/doulist/4041785/)。
+我们并不是在讲述C++这门编程语言，只是通过C++和其提供的丰富的方便特性，来讲述关于“程序设计”的内容。任何与C++细节相关的东西，可以参考[C++ Reference](http://en.cppreference.com/w/)或者Bjarne Stroustrup的《The C++ Programming Language\(4th Edition\)》，对于特定的主题，我也会专门列出可以参阅的链接。[StackOverflow](http://stackoverflow.com/questions/tagged/c%2b%2b)上也有丰富的资源来解答你的疑惑。如果要深入学习C++，推荐你去看我的私货：[C++: From Novice to Professional](http://www.douban.com/doulist/4041785/)。
 
-任何一个编程语言需要特定的运行环境，如果你已经拥有Visual Studio 2013(update 4)以及以上的版本，或者拥有一个支持 gcc4.8+ / clang3.1+ 编译套件的环境，我们需要改环境至少支持[C++11（ISO/IEC 14882:2011）](https://en.wikipedia.org/wiki/C%2B%2B11)。如果你还没有，或者不确定是否拥有符合条件的编译环境，我们推荐你去下载[Visual Studio 2015 Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs)或者[Code::Blocks](http://www.codeblocks.org/downloads/binaries)，对于Mac用户，建议你可以使用Xcode IDE。当然如果您更偏好使用心爱的编辑器写代码然后在终端编译的话，也是值得一试的。
+任何一个编程语言需要特定的运行环境，如果你已经拥有Visual Studio 2013\(update 4\)以及以上的版本，或者拥有一个支持 gcc4.8+ / clang3.1+ 编译套件的环境，我们需要改环境至少支持[C++11（ISO/IEC 14882:2011）](https://en.wikipedia.org/wiki/C%2B%2B11)。如果你还没有，或者不确定是否拥有符合条件的编译环境，我们推荐你去下载[Visual Studio 2015 Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs)或者[Code::Blocks](http://www.codeblocks.org/downloads/binaries)，对于Mac用户，建议你可以使用Xcode IDE。当然如果您更偏好使用心爱的编辑器写代码然后在终端编译的话，也是值得一试的。
 
 ## 更新状态
 
- * 第一章 环境 (rewriting)
- * 第二章 计算 Computation (done)
- * 第三章 过程 Procedural (done)
- * 第四章 编码 Encoding (done)
- * 第五章 序列 Sequence (done)
- * 第六章 引用 Reference
- * 第七章 数据 Data (done)
- * 第八章 状态 State (prepared)
- * 第九章 闭包
- * 第十章 对象 Object (prepared)
- * 第十一章
- * 第十二章
- * more...
+* 第一章 环境 \(rewriting\)
+* 第二章 计算 Computation \(done\)
+* 第三章 过程 Procedural \(done\)
+* 第四章 编码 Encoding \(done\)
+* 第五章 序列 Sequence \(done\)
+* 第六章 引用 Reference
+* 第七章 数据 Data \(done\)
+* 第八章 状态 State \(prepared\)
+* 第九章 闭包
+* 第十章 对象 Object \(prepared\)
+* 第十一章
+* 第十二章
+* more...
 
 ## 参与贡献
 
@@ -50,21 +54,21 @@
 
 ## 支持我
 
-#### 关注我的公众号获取更新：
+### 关注我的公众号获取更新：
 
-<img alt="微信公众号" src="http://wiki.kimleo.net/images/qrcode_for_gh_5d5d484e7445_430.jpg" width="256"/>
+![&#x5FAE;&#x4FE1;&#x516C;&#x4F17;&#x53F7;](http://wiki.kimleo.net/images/qrcode_for_gh_5d5d484e7445_430.jpg)
 
-#### 通过支付宝资助我创作：
+### 通过支付宝资助我创作：
 
-![支付宝](https://mobilecodec.alipay.com/show.htm?code=ap69z5d4uik0zvec89&picSize=S)
+![&#x652F;&#x4ED8;&#x5B9D;](https://mobilecodec.alipay.com/show.htm?code=ap69z5d4uik0zvec89&picSize=S)
 
-或点击<script data-gratipay-username="kenpusney"
-        data-gratipay-widget="button"
-        src="//grtp.co/v1.js"></script>给予帮助。
+或点击给予帮助。
 
-###### 特别感谢以下朋友的资助
-  - [esrever10](https://github.com/esrever10)
-  - [karakapi](https://github.com/karakapi)
-  - [负一的平方根](http://sqrt-1.me)
-  - [linkgod](http://www.linkgod.net)
-  - [shellvon](https://github.com/shellvon) & [tingoo](https://github.com/tingoo)
+#### 特别感谢以下朋友的资助
+
+* [esrever10](https://github.com/esrever10)
+* [karakapi](https://github.com/karakapi)
+* [负一的平方根](http://sqrt-1.me)
+* [linkgod](http://www.linkgod.net)
+* [shellvon](https://github.com/shellvon) & [tingoo](https://github.com/tingoo)
+

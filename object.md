@@ -15,7 +15,8 @@
 不同的车（Vehicle）都可以走（Run），包括汽车（Car）、卡车（Truck）、推车（Wagon）等等。
 
 我们可以简单地描述这种关系：
-```c++
+
+```cpp
 // Pseudo code
 interface Vehicle {
     void Run();
@@ -40,8 +41,6 @@ v->Run(); // run specific Run prodeure
 ```
 
 ## 基于继承（Inheritance）的多态
-
-
 
 ## 基于泛型（Generics）的多态
 

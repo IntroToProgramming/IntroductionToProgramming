@@ -1,3 +1,7 @@
+---
+description: C++程序的基本控制结构有哪几种？递归和循环的区别是什么？短路求值的作用是什么？
+---
+
 # 过程
 
 什么是过程呢？
@@ -5,7 +9,6 @@
 凭经验我们就能知道，实际的问题并不是像理想中那么简单，不是一个表达式就能描述的清楚的，而且也并不一定能通过组合来直接解决。
 
 甚至是简单的数学问题，也不能用他们来解决。比如：
-
 
 $$
 \begin{eqnarray}
@@ -17,16 +20,15 @@ x, &x\ge0\cr
 \end{eqnarray}
 $$
 
-
-求绝对值，或者  
+求绝对值，或者
 
 $$
 pow(x,y) = \prod_{1}^{y}{x}
 $$
-  
+
 求积。
 
-其中一个需要我们根据参数的值，来选择不同的计算方式，返回不同的结果；另外一个则是通过对特定的表达式做一个累乘（没错其实行为跟乘方是一样的，所以我把它叫pow[^1]）。
+其中一个需要我们根据参数的值，来选择不同的计算方式，返回不同的结果；另外一个则是通过对特定的表达式做一个累乘（没错其实行为跟乘方是一样的，所以我把它叫pow）。
 
 我们先看累乘。
 
@@ -34,7 +36,7 @@ $$
 
 如果我们已知指数的话，要写起来是很简单的：
 
-```c++
+```cpp
 int pow1(int x) { return x; }
 int pow2(int x) { return pow1(x) * x; }
 int pow3(int x) { return pow2(x) * x; }
@@ -46,7 +48,7 @@ int pow5(int x) { return pow4(x) * x; }
 
 然后其实我们可以把它变换一下：
 
-```c++
+```cpp
 // 伪代码
 int pow(int x, 1) { return x; }
 int pow(int x, 2) { return pow(x, 1) * x; }
@@ -57,7 +59,6 @@ int pow(int x, 5) { return pow(x, 4) * x; }
 
 所以我们得到了pow函数的另一个形式：
 
-
 $$
 \begin{eqnarray}
 pow(x, y) = \begin{cases}
@@ -67,10 +68,9 @@ pow(x, y -1)\times x, &y>1\cr
 \end{eqnarray}
 $$
 
-
 没错我们又归结到了选择结构上。后面我们会拿这个来讨论。现在只是简单提一提。
 
-哦对了，现在pow的这个形式叫做递归[^2]定义，数学上叫递推关系式（好像又叫归纳[^3]定义？）。
+哦对了，现在pow的这个形式叫做递归定义，数学上叫递推关系式（好像又叫归纳定义？）。
 
 好的，我们回到$$\sum$$运算符上来。
 
@@ -86,7 +86,7 @@ $$
 
 所以我们可以简单地把这个计算看成
 
-```c++
+```cpp
 int prod=1
 prod=prod*x;
 prod=prod*x;
@@ -103,7 +103,7 @@ C++提供了一种东西叫做循环语句。
 
 大概是长这个样子的
 
-```c++
+```cpp
 int prod=1;
 for(int i = 1; i <= y; i = i+1) {
     prod = prod*x;
@@ -124,7 +124,7 @@ for(int i = 1; i <= y; i = i+1) {
 
 于是一个典型的循环就出来了：
 
-```c++
+```cpp
 int prod=1;
 for(int i = 0; i < y; i++) {
     prod *= x;
@@ -133,7 +133,7 @@ for(int i = 0; i < y; i++) {
 
 那么我们的pow函数也有了：
 
-```c++
+```cpp
 int pow(int x, int y) {
     int prod=1;
     for(int i = 0; i < y; i++) {
@@ -151,7 +151,7 @@ int pow(int x, int y) {
 
 C++让我们能通过选择语句`if...else...`做这件事。
 
-```c++
+```cpp
 int abs(int x) {
     if(x >= 0) {
         return x;
@@ -163,7 +163,7 @@ int abs(int x) {
 
 当然`if/else`还有一种简单的形式，可以让我们写起来更省力。
 
-```c++
+```cpp
 int abs(int x) {
     return (x >= 0) ? x : -x;
 }
@@ -175,7 +175,7 @@ int abs(int x) {
 
 好的，这样子我们就能完善我们前面写的递归定义的pow了。
 
-```c++
+```cpp
 int pow(int x, int y) {
     return (y == 1) ? x : pow(x, y-1) * x;
 }
@@ -189,7 +189,7 @@ int pow(int x, int y) {
 
 我们先简单的把这个实现写出来吧。
 
-```c++
+```cpp
 int pow(int x, int y, int prod = 1) {
     return (y == 0) ? prod : pow(x, y-1, prod*x);
 }
@@ -199,7 +199,7 @@ int pow(int x, int y, int prod = 1) {
 
 首先我们提取出变量来。
 
-```c++
+```cpp
 int pow(int x, int y, int prod = 1) {
     if (y == 0) {
         return prod;
@@ -212,7 +212,7 @@ int pow(int x, int y, int prod = 1) {
 
 正式写成循环
 
-```c++
+```cpp
 int pow(int x, int y, int prod = 1) {
     for(;y != 0;) { // or while(y != 0)
         y = y - 1;
@@ -224,7 +224,7 @@ int pow(int x, int y, int prod = 1) {
 
 改写成递增的变量
 
-```c++
+```cpp
 int pow(int x, int y) {
     int prod = 1;
     for(int i = 0; int i < y; i++) {
@@ -238,7 +238,7 @@ int pow(int x, int y) {
 
 试想一下我们的递归版pow代码
 
-```c++
+```cpp
 int pow(int x, int y) {
     return (y == 1) ? x : pow(x, y-1) * x;
 }
@@ -256,7 +256,7 @@ int pow(int x, int y) {
 
 上一讲，我们提到了组合的概念，说，通过组合会强制求值每一个传递给函数的参数，但是当我们把这个东西忘`?:`操作符上套的时候，并没有效果。
 
-这种特性叫做短路求值（short-circuit evaluation）[^4]，对于`?:`来说，只有当条件为真的时候才去求值真分支，为假的时候才去求值假分支。
+这种特性叫做短路求值（short-circuit evaluation），对于`?:`来说，只有当条件为真的时候才去求值真分支，为假的时候才去求值假分支。
 
 所以如果写错的那个pow，当`y == 1`的时候，还是能够正常执行的。
 
@@ -270,13 +270,9 @@ int pow(int x, int y) {
 
 根据我们前面提到的组合的思想，再复杂的过程都能通过这些来组合解决。
 
----
-
 ## 练习
 
 * 试写出求阶乘、求斐波那契数等函数的循环、递归和尾递归版本的实现。
 * 用以上代码解释短路求值
 * 请使用顺序、分支、循环来描述现实中的一些过程。
-
-
 
