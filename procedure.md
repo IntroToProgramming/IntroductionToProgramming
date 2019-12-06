@@ -1,5 +1,5 @@
 ---
-description: C++程序的基本控制结构有哪几种？递归和循环的区别是什么？短路求值的作用是什么？
+description: 程序的基本控制结构有哪几种？递归和循环的区别是什么？短路求值的作用是什么？
 ---
 
 # 过程
@@ -36,25 +36,25 @@ $$
 
 如果我们已知指数的话，要写起来是很简单的：
 
-```cpp
-int pow1(int x) { return x; }
-int pow2(int x) { return pow1(x) * x; }
-int pow3(int x) { return pow2(x) * x; }
-...
-int pow5(int x) { return pow4(x) * x; }
+```javascript
+function pow1(x) { return x; }
+function pow2(x) { return pow1(x) * x; }
+function pow3(x) { return pow2(x) * x; }
+function pow4(x) { return pow3(x) * x; }
+function pow5(x) { return pow4(x) * x; }
 ```
 
 这样写其实是符合pow的定义的。
 
 然后其实我们可以把它变换一下：
 
-```cpp
-// 伪代码
-int pow(int x, 1) { return x; }
-int pow(int x, 2) { return pow(x, 1) * x; }
-int pow(int x, 3) { return pow(x, 2) * x; }
-...
-int pow(int x, 5) { return pow(x, 4) * x; }
+```javascript
+// 伪代码，无法正确运行
+function pow(x, 1) { return x; }
+function pow(x, 2) { return pow(x, 1) * x; }
+function pow(x, 3) { return pow(x, 2) * x; }
+function pow(x, 4) { return pow(x, 3) * x; }
+function pow(x, 5) { return pow(x, 4) * x; }
 ```
 
 所以我们得到了pow函数的另一个形式：
@@ -86,8 +86,8 @@ $$
 
 所以我们可以简单地把这个计算看成
 
-```cpp
-int prod=1
+```javascript
+let prod=1
 prod=prod*x;
 prod=prod*x;
 prod=prod*x;
@@ -99,13 +99,13 @@ prod=prod*x; // 执行y次
 
 ## 循环
 
-C++提供了一种东西叫做循环语句。
+JavaScript提供了一种东西叫做循环语句。
 
 大概是长这个样子的
 
-```cpp
-int prod=1;
-for(int i = 1; i <= y; i = i+1) {
+```javascript
+let prod=1;
+for(let i = 1; i <= y; i = i+1) {
     prod = prod*x;
 }
 ```
@@ -124,19 +124,19 @@ for(int i = 1; i <= y; i = i+1) {
 
 于是一个典型的循环就出来了：
 
-```cpp
-int prod=1;
-for(int i = 0; i < y; i++) {
+```javascript
+let prod=1;
+for(let i = 0; i < y; i++) {
     prod *= x;
 }
 ```
 
 那么我们的pow函数也有了：
 
-```cpp
-int pow(int x, int y) {
-    int prod=1;
-    for(int i = 0; i < y; i++) {
+```javascript
+function pow(x, y) {
+    let prod=1;
+    for(let i = 0; i < y; i++) {
         prod *= x;
     }
     return prod;
@@ -149,10 +149,10 @@ int pow(int x, int y) {
 
 我们要根据x的符号来决定时返回x还是他的相反数。
 
-C++让我们能通过选择语句`if...else...`做这件事。
+JavaScript让我们能通过选择语句`if...else...`做这件事。
 
-```cpp
-int abs(int x) {
+```javascript
+function abs(x) {
     if(x >= 0) {
         return x;
     } else {
@@ -163,8 +163,8 @@ int abs(int x) {
 
 当然`if/else`还有一种简单的形式，可以让我们写起来更省力。
 
-```cpp
-int abs(int x) {
+```javascript
+function abs(x) {
     return (x >= 0) ? x : -x;
 }
 ```
@@ -175,8 +175,8 @@ int abs(int x) {
 
 好的，这样子我们就能完善我们前面写的递归定义的pow了。
 
-```cpp
-int pow(int x, int y) {
+```javascript
+function pow(x, y) {
     return (y == 1) ? x : pow(x, y-1) * x;
 }
 ```
@@ -189,8 +189,8 @@ int pow(int x, int y) {
 
 我们先简单的把这个实现写出来吧。
 
-```cpp
-int pow(int x, int y, int prod = 1) {
+```javascript
+function pow(x, y, prod = 1) {
     return (y == 0) ? prod : pow(x, y-1, prod*x);
 }
 ```
@@ -199,8 +199,8 @@ int pow(int x, int y, int prod = 1) {
 
 首先我们提取出变量来。
 
-```cpp
-int pow(int x, int y, int prod = 1) {
+```javascript
+function pow(x, y, prod = 1) {
     if (y == 0) {
         return prod;
     }
@@ -212,8 +212,8 @@ int pow(int x, int y, int prod = 1) {
 
 正式写成循环
 
-```cpp
-int pow(int x, int y, int prod = 1) {
+```javascript
+function pow(x, y, prod = 1) {
     for(;y != 0;) { // or while(y != 0)
         y = y - 1;
         prod*=x;
@@ -224,10 +224,10 @@ int pow(int x, int y, int prod = 1) {
 
 改写成递增的变量
 
-```cpp
-int pow(int x, int y) {
-    int prod = 1;
-    for(int i = 0; int i < y; i++) {
+```javascript
+function pow(x, y) {
+    let prod = 1;
+    for(let i = 0; i < y; i++) {
         prod *= x;
     }
     return prod;
@@ -238,8 +238,8 @@ int pow(int x, int y) {
 
 试想一下我们的递归版pow代码
 
-```cpp
-int pow(int x, int y) {
+```javascript
+function pow(x, y) {
     return (y == 1) ? x : pow(x, y-1) * x;
 }
 ```

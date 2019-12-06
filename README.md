@@ -24,23 +24,21 @@ description: 什么是编程？为什么需要编程？编程解决了哪些问�
 
 可变的状态可能会带来的一个问题就是，如果有多个人尝试同时去修改这个状态的时候，会造成结果的不一致性。比如，一个没有加入事务处理的银行账户，两个人同时在进行操作，账户中原有1000元，甲存入了200块，但在甲存入200块还未完成的同时乙取出了200块。这种时候会有几种可能的结果，第一种就是甲先于乙完成操作，结果就是账户余额变成了800块，凭空损失了200块；另外一种就是乙先于甲完成了操作，结果账户余额就变成了甲操作的结果，1200块，凭空多出来400块。这种问题就属于**并发**（Concurrency）。
 
-## C++
+## JavaScript
 
-本书选择使用C++来讲述编程中的各种思想和概念。
+本书选择使用JavaScript来讲述编程中的各种思想和概念。
 
-我们并不是在讲述C++这门编程语言，只是通过C++和其提供的丰富的方便特性，来讲述关于“程序设计”的内容。任何与C++细节相关的东西，可以参考[C++ Reference](http://en.cppreference.com/w/)或者Bjarne Stroustrup的《The C++ Programming Language\(4th Edition\)》，对于特定的主题，我也会专门列出可以参阅的链接。[StackOverflow](http://stackoverflow.com/questions/tagged/c%2b%2b)上也有丰富的资源来解答你的疑惑。如果要深入学习C++，推荐你去看我的私货：[C++: From Novice to Professional](http://www.douban.com/doulist/4041785/)。
-
-任何一个编程语言需要特定的运行环境，如果你已经拥有Visual Studio 2013\(update 4\)以及以上的版本，或者拥有一个支持 gcc4.8+ / clang3.1+ 编译套件的环境，我们需要改环境至少支持[C++11（ISO/IEC 14882:2011）](https://en.wikipedia.org/wiki/C%2B%2B11)。如果你还没有，或者不确定是否拥有符合条件的编译环境，我们推荐你去下载[Visual Studio 2015 Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs)或者[Code::Blocks](http://www.codeblocks.org/downloads/binaries)，对于Mac用户，建议你可以使用Xcode IDE。当然如果您更偏好使用心爱的编辑器写代码然后在终端编译的话，也是值得一试的。
+我们并不是在讲述JavaScript这门编程语言，只是通过JavaScript和其提供的丰富的方便特性，来讲述关于“程序设计”的内容。任何与JavaScript细节相关的东西，可以参考[Mozilla Developer Network](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)，对于特定的主题，我也会专门列出可以参阅的链接。[StackOverflow](http://stackoverflow.com/questions/tagged/javascript)上也有丰富的资源来解答你的疑惑。
 
 ## 更新状态
 
 * 第一章 环境 \(rewriting\)
-* 第二章 计算 Computation \(done\)
-* 第三章 过程 Procedural \(done\)
-* 第四章 编码 Encoding \(done\)
-* 第五章 序列 Sequence \(done\)
+* 第二章 计算 Computation \(outdated\)
+* 第三章 过程 Procedural \(outdated\)
+* 第四章 编码 Encoding \(outdated\)
+* 第五章 序列 Sequence \(outdated\)
 * 第六章 引用 Reference
-* 第七章 数据 Data \(done\)
+* 第七章 数据 Data \(outdated\)
 * 第八章 状态 State \(prepared\)
 * 第九章 闭包
 * 第十章 对象 Object \(prepared\)
@@ -60,7 +58,11 @@ description: 什么是编程？为什么需要编程？编程解决了哪些问�
 
 #### 资助我创作：
 
-支付宝二维码：
+微信二维码：
+
+<img alt="Buy me a coffee" src="./res/images/qrcode.jpeg" width="256"/>
+
+
 或点击[我的 Paypal 链接](http://paypal.me/kenpusney)给予帮助。
 
 ###### 特别感谢以下朋友的资助

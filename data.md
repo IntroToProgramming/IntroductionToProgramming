@@ -12,24 +12,8 @@
 
 比如，我们要表示一辆车，其中包括他的品牌、价格和最高时速。在当前的情况下，最合适的方式就是采用长度为3的array，约定好第0位表示品牌，第1位表示价格，第2位表示最高时速。于是我们可以得到以下的设计：
 
-```cpp
-using Car=std::array<int, 3>;  // make type alias
-
-Car make_car(int brand, int price, int speed) {
-    return Car {brand, price, speed};
-}
-
-int brand(const Car& car) {
-    return car[0];
-}
-
-int price(const Car& car) {
-    return car[1];
-}
-
-int speed(const Car& car) {
-    return car[2];
-}
+```javascript
+let car = [1, 500000, 180]
 ```
 
 于是我们就能够很轻松地（并丑陋地）表示汽车了。
@@ -42,22 +26,20 @@ int speed(const Car& car) {
 
 比如，在C++中我们可以很简单的把Car表示如下：
 
-```cpp
-struct Car {
-    string brand;
-    int price;
-    int speed;
-}; // 不要忘了这里的分号
+```javascript
+let car = {
+    brand: 'Nissan',
+    price: 500000, // USD
+    speed: 180 // MPH
+}
 ```
 
 这是一个结构（struct），其中包含了三个域（field，也叫字段）。比起还要反复地写各种函数来，要简单和方便很多。 而且，各个字段的类型可以不同。
 
 这样子我们就能通过Car来表示一辆汽车了：
 
-```cpp
-Car car = {"TOYOTA", 120000, 180};
-
-std::cout << car.brand;
+```javascript
+car.brand
 ```
 
 很简单吧。
@@ -73,28 +55,28 @@ std::cout << car.brand;
 复数，
 
 ```cpp
-struct Complex {
-    int real;
-    int imag;
+let complex = {
+    real: 1,
+    image: 1
 };
 ```
 
 分数，
 
 ```cpp
-struct Fractional {
-    int numerator;
-    int denominator;
+let frac = {
+    numerator: 1,
+    denominator: 2
 };
 ```
 
 甚至是，用数据代替表达式，
 
 ```cpp
-struct ArithmaticExpression {
-    Operator optr;
-    int leftOperand;
-    int rightOperand;
+let arith = {
+    optr: '+'
+    leftOperand: 1,
+    rightOperand: 2
 };
 ```
 
