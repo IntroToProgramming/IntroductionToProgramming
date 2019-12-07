@@ -11,13 +11,11 @@ description: 程序的基本控制结构有哪几种？递归和循环的区别�
 甚至是简单的数学问题，也不能用他们来解决。比如：
 
 $$
-\begin{eqnarray}
 |x|
  = abs(x) = \begin{cases}
 x, &x\ge0\cr
 -x, &x\lt0\cr
 \end{cases}
-\end{eqnarray}
 $$
 
 求绝对值，或者
@@ -60,19 +58,17 @@ function pow(x, 5) { return pow(x, 4) * x; }
 所以我们得到了pow函数的另一个形式：
 
 $$
-\begin{eqnarray}
 pow(x, y) = \begin{cases}
 x, &y=1\cr
 pow(x, y -1)\times x, &y>1\cr
 \end{cases}
-\end{eqnarray}
 $$
 
 没错我们又归结到了选择结构上。后面我们会拿这个来讨论。现在只是简单提一提。
 
 哦对了，现在pow的这个形式叫做递归定义，数学上叫递推关系式（好像又叫归纳定义？）。
 
-好的，我们回到$$\sum$$运算符上来。
+好的，我们回到$$\prod$$运算符上来。
 
 根据前面的分析，我们可以知道，如果能够拿到前面一个乘积，然后和第y个相乘，，就可以得到我们要的结果。
 
