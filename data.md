@@ -24,7 +24,7 @@ let car = [1, 500000, 180]
 
 所以大多数编程语言都提供结构（Structure）或者记录（Record）类型，来简化我们实现这个的过程。
 
-比如，在C++中我们可以很简单的把Car表示如下：
+比如，在JavaScript中我们可以很简单的把Car表示如下：
 
 ```javascript
 let car = {
@@ -151,7 +151,7 @@ shared_ptr<List> make_list(int value) {
 
 看我们的`make_cell`函数，其实就是创建了一个`shared_ptr`，然后再利用传入的参数来对cell中的数据进行初始化。当然这意思其实已经很明确了，`make_cell`作为创建一个新的cell结构的函数而存在。
 
-但是这样未免太罗嗦，每次我创建一个struct的时候都要再去考虑怎么设计一个用来专门创建实例的函数。C++提供了一种叫做构造器的函数，可以简化这个过程。加入了构造器的List定义如下：
+但是这样未免太罗嗦，每次我创建一个struct的时候都要再去考虑怎么设计一个用来专门创建实例的函数。JavaScript提供了一种叫做构造器的函数，可以简化这个过程。加入了构造器的List定义如下：
 
 ```cpp
 struct {
@@ -163,7 +163,7 @@ struct {
 }
 ```
 
-这里的构造器是说，我接受两个参数（`_next`, `_value`），然后用这两个参数去初始化C++结构（struct）中的字段。
+这里的构造器是说，我接受两个参数（`_next`, `_value`），然后用这两个参数去初始化JavaScript结构（struct）中的字段。
 
 然后我们可以把整个make\_cell函数改成
 
@@ -216,7 +216,7 @@ transform(make_list(1,2,3,4,5), [](int i) -> int { return -i; });
 
 比如第三章中的pow，类型就是`std::function<int(int, int)>`，接收两个整数，返回他们的乘方，结果也是整数。
 
-而有些时候我们可能并不只是需要拿已经就有的过程来简单地做抽象，所以更有必要提供一种方式让我们随时都能够创建一个过程。于是C++给我们提供了Lambda表达式（Lambda Expression，在其他语言里面也可能叫做匿名函数/过程，Anonymous Function/Procedure），比如
+而有些时候我们可能并不只是需要拿已经就有的过程来简单地做抽象，所以更有必要提供一种方式让我们随时都能够创建一个过程。于是JavaScript给我们提供了Lambda表达式（Lambda Expression，在其他语言里面也可能叫做匿名函数/过程，Anonymous Function/Procedure），比如
 
 ```cpp
 auto negate=[](int i) -> int{ return -i; };
