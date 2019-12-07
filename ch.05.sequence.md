@@ -63,8 +63,35 @@ for item in nums:
 
 ## 串
 
-TODO: 重写
+JavaScript中的字符串与array类似，自己维护了长度。但在早期的一些编程语言（如C语言）中，是没有做这种记录的，取而代之的是使用一个特定的标志来表示，这里是最后一个值为空。这种字符串也有另外一个名字，叫空结尾串（Null-terminated String）。
 
+这种特殊标记就可以让我们界定一个序列的边界的另外一种方式。
+
+我们可以来简单模拟一下这个行为：
+```javascript
+let content = ['h', 'e', 'l', 'l', 'o', null];
+
+// 求长度：
+
+function length(nts) {
+    let length = 0;
+    for (let item of nts) {
+        if (item != null) {
+            length ++;
+        } else {
+            break;
+        }
+    }
+    return length;
+}
+
+length(content) // 5
+```
+
+而实际存放这个串的空间大小：
+```javascript
+content.length // 6
+```
 
 ## 可变长序列
 
@@ -102,13 +129,9 @@ TODO: 重写
 
 总结下来就是，序列是线性的（Linear）、有序的（Ordered，类比“排序过的（Sorted）”）和有穷的（Finite）。
 
-## 迭代器
+## 生成器
 
-TODO: 重写
 
-## Iterator Categories
-
-TODO: 重写
 
 ### 练习：最长公共子序列（Longest Common Subsequence）
 
