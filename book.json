@@ -1,7 +1,7 @@
 {
     "gitbook": ">=2.0.0",
     "plugins": [
-        "mathjax",
+        "mathjax-pro",
         "todo",
         "betterchinese",
         "ga"
