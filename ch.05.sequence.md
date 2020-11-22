@@ -131,7 +131,7 @@ content.length // 6
 
 ## 生成器
 
-
+很多时候我们的序列是通过某种规则产生的，而这种规则
 
 ### 练习：最长公共子序列（Longest Common Subsequence）
 
