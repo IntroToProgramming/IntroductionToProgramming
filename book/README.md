@@ -54,7 +54,7 @@
 
 ### 关注我的公众号获取更新：
 
-<img alt="微信公众号" src="http://kimleo.net/qrcode_for_gh_5d5d484e7445_344.jpg" width="256"/>
+<img alt="微信公众号" src="./res/images/wechat-mp-qrcode.jpg" width="256"/>
 
 #### 资助我创作：
 
