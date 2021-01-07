@@ -1,3 +1,9 @@
 _book/
 
 node_modules/
+
+dist/
+
+.vuepress/dist/
+
+*.log

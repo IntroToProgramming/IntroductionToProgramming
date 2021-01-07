@@ -1,5 +1,7 @@
 {
-    "dependencies": {
-        "mathjax": "2.7.7"
-    }
+  "devDependencies": {
+    "@area403/markdown-it-mathjax": "^1.0.0",
+    "vuepress": "^1.8.0",
+    "vuepress-plugin-mathjax": "^1.2.8"
+  }
 }
