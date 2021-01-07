@@ -60,7 +60,7 @@
 
 微信二维码：
 
-<img alt="Buy me a coffee" src="./res/images/qrcode.jpeg" width="256"/>
+<img alt="Buy me a coffee" src="./res/images/wechat-pay-qrcode.jpg" width="256"/>
 
 
 或点击[我的 Paypal 链接](http://paypal.me/kenpusney)给予帮助。
