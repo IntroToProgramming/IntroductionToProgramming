@@ -25,4 +25,21 @@ module.exports = {
             md.use(require('@area403/markdown-it-mathjax'));
         },
     },
+
+    head: [
+        [
+            "script",
+            {},
+
+            `
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?c522f795b036ecc6e5446ce20e40ae9f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+            `
+        ]
+    ]
 }

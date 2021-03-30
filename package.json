@@ -1,4 +1,9 @@
 {
+
+  "scripts": {
+    "build": "vuepress build",
+    "dev": "vuepress dev"
+  },
   "devDependencies": {
     "@area403/markdown-it-mathjax": "^1.0.0",
     "vuepress": "^1.8.0",
