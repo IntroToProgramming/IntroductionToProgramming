@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>环境 | 编程导引</title>
+    <meta name="description" content="简单介绍下JavaScript编程语言，以及对应的环境准备工作。">
+    <link rel="stylesheet" href="/assets/style.cac40d77.css">
+    <link rel="modulepreload" href="/assets/Home.b545b89c.js">
+    <link rel="modulepreload" href="/assets/app.2fe5d9c1.js">
+    <link rel="modulepreload" href="/assets/ch01_environment.md.f6bec722.lean.js">
+    <link rel="modulepreload" href="/assets/app.2fe5d9c1.js">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?c522f795b036ecc6e5446ce20e40ae9f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+            </script>
+    <script>
+window.MathJax = {
+    tex: {
+        inlineMath: [['$', '$']]
+    },
+    svg: {
+        fontCache: 'global'
+    }
+};
+
+(function () {
+    var script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
+    script.async = true;
+    document.head.appendChild(script);
+})();
+setInterval(() => window.MathJax.typeset(), 700);
+</script>
+    <meta name="twitter:title" content="环境 | 编程导引">
+    <meta property="og:title" content="环境 | 编程导引">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="theme"><header class="nav-bar" data-v-675d8756><div class="sidebar-button" data-v-675d8756><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" class></path></svg></div><a class="nav-bar-title" href="/" aria-label="编程导引, back to home" data-v-675d8756 data-v-4a583abe><!----> 编程导引</a><div class="flex-grow" data-v-675d8756></div><div class="nav" data-v-675d8756><nav class="nav-links" data-v-675d8756 data-v-eab3edfe><!--[--><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/intro" data-v-b8818f8c>编程导引 <!----></a></div></div><!--]--><!----><!----></nav></div><!--[--><!--]--></header><aside class="sidebar" data-v-83e92a68><nav class="nav-links nav" data-v-83e92a68 data-v-eab3edfe><!--[--><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/intro" data-v-b8818f8c>编程导引 <!----></a></div></div><!--]--><!----><!----></nav><!--[--><!--]--><ul class="sidebar-links" data-v-83e92a68><!--[--><li class="sidebar-link"><a class="sidebar-link-item" href="/intro">引言</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item active" href="/ch01_environment">环境</a><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="#javascript">JavaScript</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#编写代码">编写代码</a><!----></li></ul></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch02_computation">计算</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch03_procedure">过程</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch04_encoding">编码</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch05_sequence">序列</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch06_data">数据</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch07_state">状态</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch08_reference">引用</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch09_closure">闭包</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch10_object">对象</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch11_concurrency">并发</a><!----></li><!--]--></ul><!--[--><!--]--></aside><!-- TODO: make this button accessible --><div class="sidebar-mask"></div><main class="page" data-v-7eddb2c4><div class="container" data-v-7eddb2c4><!--[--><!--]--><div style="position:relative;" class="content" data-v-7eddb2c4><div><h1 id="环境" tabindex="-1">环境 <a class="header-anchor" href="#环境" aria-hidden="true">#</a></h1><h2 id="javascript" tabindex="-1">JavaScript <a class="header-anchor" href="#javascript" aria-hidden="true">#</a></h2><p>JavaScript是目前使用最广泛的编程语言之一。作为互联网和移动计算时代的基础支撑语言，从基本的生产力工具，到日常的泛娱乐平台，它活跃在每一次你浏览网站、使用App的过程中，提供基本的运算和流程保障。</p><p>JavaScript的诞生和发展也颇具传奇色彩，Brendan Eich在几天的时间内设计并实现了这门编程语言，影响了后面几十年的软件和技术的发展。如今几乎每一个设备都接入了JavaScript，深入到了我们生活的方方面面。作为一门工业级的编程语言，JavaScript由欧洲计算机制造商协会（ECMA）制定标准化的行为和定义，来规范这个语言的使用和发展方向。TC39技术委员会也一直在更新JavaScript的功能，让这个有二十多年历史的旧技术不断焕发新的活力。</p><p>JavaScript的环境触手可及。在电脑端你可以随时打开一个现代的浏览器，页面上右键菜单中选择“Inspect”或者“查看/检查元素”，选择“控制台（Console）”标签。如果你是在移动端或者浏览器不支持，也可以通过一些工具比如<a href="http://code.hnldesign.nl/demo/hnl.MobileConsole.html" target="_blank" rel="noopener noreferrer">移动端Console</a>来体验JavaScript控制台。</p><h2 id="编写代码" tabindex="-1">编写代码 <a class="header-anchor" href="#编写代码" aria-hidden="true">#</a></h2><p>当需要写大量代码组合使用的时候，你可以通过本地编辑Web页面的方式来编写JavaScript代码。JavaScript是Web端的基本编程语言，可以稳定地运行在大多数现代浏览器中。</p><p>通过文件编辑器创建下面的代码，命名为<code>index.html</code></p><div class="language-html"><pre><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>zh-cn<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Introduction to Programming<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text/javascript<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;hello world&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>在<code>&lt;script ...&gt;</code>和<code>&lt;/script&gt;</code>之间，就是你编写JavaScript代码的地方。编写完成后，用浏览器打开（或者刷新）这个文件，就能看到对应的效果和执行内容。</p><p>比如上面的代码，就是在控制台打印“hello world”。</p><p>本书推荐使用<a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">Visual Studio Code</a>作为基本的代码编辑工具。你可以在官网进行下载和安装。官网也有详细的使用教程。</p><p>MDN 中对<a href="https://developer.mozilla.org/zh-CN/docs/Learn/Discover_browser_developer_tools" target="_blank" rel="noopener noreferrer">浏览器开发者工具</a>和<a href="https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/Installing_basic_software" target="_blank" rel="noopener noreferrer">基本的工具软件</a>有更为完整的介绍，可以参考。如果你想了解更多关于Web设计和开发的知识，MDN也有完备的文档供参考。</p><p>一切准备就绪的话，我们就开始吧。</p></div></div><footer class="page-footer" data-v-7eddb2c4 data-v-fb8d84c6><div class="edit" data-v-fb8d84c6><div class="edit-link" data-v-fb8d84c6 data-v-1ed99556><!----></div></div><div class="updated" data-v-fb8d84c6><!----></div></footer><div class="next-and-prev-link" data-v-7eddb2c4 data-v-38ede35f><div class="container" data-v-38ede35f><div class="prev" data-v-38ede35f><a class="link" href="/intro" data-v-38ede35f><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="icon icon-prev" data-v-38ede35f><path d="M19,11H7.4l5.3-5.3c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-7,7c-0.1,0.1-0.2,0.2-0.2,0.3c-0.1,0.2-0.1,0.5,0,0.8c0.1,0.1,0.1,0.2,0.2,0.3l7,7c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3c0.4-0.4,0.4-1,0-1.4L7.4,13H19c0.6,0,1-0.4,1-1S19.6,11,19,11z"></path></svg><span class="text" data-v-38ede35f>引言</span></a></div><div class="next" data-v-38ede35f><a class="link" href="/ch02_computation" data-v-38ede35f><span class="text" data-v-38ede35f>计算</span><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="icon icon-next" data-v-38ede35f><path d="M19.9,12.4c0.1-0.2,0.1-0.5,0-0.8c-0.1-0.1-0.1-0.2-0.2-0.3l-7-7c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l5.3,5.3H5c-0.6,0-1,0.4-1,1s0.4,1,1,1h11.6l-5.3,5.3c-0.4,0.4-0.4,1,0,1.4c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3l7-7C19.8,12.6,19.9,12.5,19.9,12.4z"></path></svg></a></div></div></div><!--[--><!--]--></div></main></div><!----><!--]--></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"glossary.md\":\"b93c45f8\",\"summary.md\":\"a7cd9f93\",\"ch01_environment.md\":\"f6bec722\",\"ch02_computation.md\":\"d35dc0f5\",\"ch03_procedure.md\":\"96284ceb\",\"ch04_encoding.md\":\"869302a4\",\"ch05_sequence.md\":\"0824aac4\",\"ch06_data.md\":\"432da640\",\"ch07_state.md\":\"cc3a100a\",\"ch08_reference.md\":\"8799898c\",\"ch09_closure.md\":\"81452677\",\"ch10_object.md\":\"f22df407\",\"ch11_concurrency.md\":\"ab368c0b\",\"index.md\":\"b9ce94fd\",\"intro.md\":\"5b7292a2\",\"stream.md\":\"a705d840\"}")</script>
+    <script type="module" async src="/assets/app.2fe5d9c1.js"></script>
+    
+  </body>
+</html>

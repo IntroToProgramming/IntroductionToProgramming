@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>计算 | 编程导引</title>
+    <meta name="description" content="计算机可以完成哪些基本运算？如何把运算进行组合？如何进行函数封装？如何实现递归？">
+    <link rel="stylesheet" href="/assets/style.cac40d77.css">
+    <link rel="modulepreload" href="/assets/Home.b545b89c.js">
+    <link rel="modulepreload" href="/assets/app.2fe5d9c1.js">
+    <link rel="modulepreload" href="/assets/ch02_computation.md.d35dc0f5.lean.js">
+    <link rel="modulepreload" href="/assets/app.2fe5d9c1.js">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?c522f795b036ecc6e5446ce20e40ae9f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+            </script>
+    <script>
+window.MathJax = {
+    tex: {
+        inlineMath: [['$', '$']]
+    },
+    svg: {
+        fontCache: 'global'
+    }
+};
+
+(function () {
+    var script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
+    script.async = true;
+    document.head.appendChild(script);
+})();
+setInterval(() => window.MathJax.typeset(), 700);
+</script>
+    <meta name="twitter:title" content="计算 | 编程导引">
+    <meta property="og:title" content="计算 | 编程导引">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="theme"><header class="nav-bar" data-v-675d8756><div class="sidebar-button" data-v-675d8756><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" class></path></svg></div><a class="nav-bar-title" href="/" aria-label="编程导引, back to home" data-v-675d8756 data-v-4a583abe><!----> 编程导引</a><div class="flex-grow" data-v-675d8756></div><div class="nav" data-v-675d8756><nav class="nav-links" data-v-675d8756 data-v-eab3edfe><!--[--><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/intro" data-v-b8818f8c>编程导引 <!----></a></div></div><!--]--><!----><!----></nav></div><!--[--><!--]--></header><aside class="sidebar" data-v-83e92a68><nav class="nav-links nav" data-v-83e92a68 data-v-eab3edfe><!--[--><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/intro" data-v-b8818f8c>编程导引 <!----></a></div></div><!--]--><!----><!----></nav><!--[--><!--]--><ul class="sidebar-links" data-v-83e92a68><!--[--><li class="sidebar-link"><a class="sidebar-link-item" href="/intro">引言</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch01_environment">环境</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item active" href="/ch02_computation">计算</a><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="#计算-1">计算</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#组合">组合</a><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="#组合的意义">组合的意义</a><!----></li></ul></li><li class="sidebar-link"><a class="sidebar-link-item" href="#练习">练习</a><!----></li></ul></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch03_procedure">过程</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch04_encoding">编码</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch05_sequence">序列</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch06_data">数据</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch07_state">状态</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch08_reference">引用</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch09_closure">闭包</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch10_object">对象</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch11_concurrency">并发</a><!----></li><!--]--></ul><!--[--><!--]--></aside><!-- TODO: make this button accessible --><div class="sidebar-mask"></div><main class="page" data-v-7eddb2c4><div class="container" data-v-7eddb2c4><!--[--><!--]--><div style="position:relative;" class="content" data-v-7eddb2c4><div><h1 id="计算" tabindex="-1">计算 <a class="header-anchor" href="#计算" aria-hidden="true">#</a></h1><p>编程语言是人与计算机打交道的一个重要工具。</p><p>计算机（Computer）是干嘛的？当然是计算（Computing）啦。</p><p>在浏览器的控制台输入以下代码：</p><div class="language-javascript"><pre><code><span class="token number">1</span> <span class="token operator">+</span> <span class="token number">1</span>
+</code></pre></div><p>是不是有看到浏览器在回应你：<code>2</code>。这里基本上是能够当成一个计算器用的。</p><p>没错，这就是计算嘛。</p><p>然而，有什么用呢？</p><h2 id="计算-1" tabindex="-1">计算 <a class="header-anchor" href="#计算-1" aria-hidden="true">#</a></h2><p>简（pian）单（mian）地讲，一切问题都能抽出来一套数学模型，同样能够抽出来的数学模型都可以转化成计算问题，然后让计算机来解决。</p><p>所以<strong>计算</strong>可以看成是整个程序设计的基础。同样像我们之前提到的，计算机，本身也就是拿来做计算的。</p><p>那么我们都可以做哪些计算呢？</p><p>当然普通的$+ - \times(*) \div(/)$不用说，你还可以把一些复杂的计算规则定义成函数：</p><div class="language-javascript"><pre><code><span class="token keyword">function</span> <span class="token function">pow5</span><span class="token punctuation">(</span><span class="token parameter">num</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> num <span class="token operator">*</span> num <span class="token operator">*</span> num <span class="token operator">*</span> num <span class="token operator">*</span> num<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>比如<code>pow5</code>的意思就是求一个数的5次方。我们定义了一个函数，怎么用呢？</p><p>然后尝试下面的代码：</p><div class="language-javascript"><pre><code><span class="token function">pow5</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+</code></pre></div><p>嗯，没错，输出了我们期望的结果（<code>1</code>）。</p><h2 id="组合" tabindex="-1">组合 <a class="header-anchor" href="#组合" aria-hidden="true">#</a></h2><p>什么是组合呢？</p><p>想想我们学习函数和多项式的时候，</p><p>$$ f(x) = x^2 + 2x + 1 $$</p><p>$$ g(x) = (x+3)(x-5) $$</p><p>然后我们要定义一个$h(x) = f(g(x))$，那么定义出来的$h(x)$长什么样呢？</p><p>我们首先要把$g(x)$代入$f(x)$，</p><p>$$ f(g(x)) = g(x)^2 + 2g(x) + 1 $$</p><p>即</p><p>$$ f(g(x)) = [(x+3)(x-5)]^2 + 2 * (x+3)(x-5) + 1 $$</p><p>好吧我编不下去了。总之展开来以后很丑的。</p><p>而且如果以后遇到$\sigma(x,y,z)$跟$\theta(a,b,c)$组合的，或者是更多参数的函数组合，结果更是可想而知。</p><p>但是在JavaScript里面我们并不用担心这个问题。</p><p>比如我们有两个函数</p><div class="language-javascript"><pre><code><span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> x<span class="token operator">*</span>x <span class="token operator">+</span> <span class="token number">2</span><span class="token operator">*</span>x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">g</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>x<span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>x<span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>那么我们的$h(x)$可以很简单的写成这个样子：</p><div class="language-javascript"><pre><code><span class="token keyword">function</span> <span class="token function">h</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token function">g</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>或者你也可以不用专门去定义，在用到的时候直接用就可以：</p><div class="language-javascript"><pre><code><span class="token function">f</span><span class="token punctuation">(</span><span class="token function">g</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">// or</span>
+<span class="token function">h</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="组合的意义" tabindex="-1">组合的意义 <a class="header-anchor" href="#组合的意义" aria-hidden="true">#</a></h3><p>比如我们可以考虑一个更复杂的函数，</p><p>$$ \sigma(x,y) = x^2 + x*y + (x+y)\times5 $$</p><p>当 $x, y$ 分别为 $4x+1,5x-3$的时候。你可以试着自己去展开一下这个算式：</p><p>$$ \sigma(4x+1, 5x-3) ＝ (4x+1)^2 + (4x+1)(5x-3)+(4x+1+5x-3)\times 5 $$</p><p>总之，无论他有多长，都会在算式里面充斥着$4x+1$和$5x-3$，而且，计算机并没有那么聪明，所以只好按照特定的顺序一次次的计算。</p><p>于是$4x+1$被重复计算了三次，$5x-3$被重复计算了两次。对于<code>pow5</code>那种情况，更是会被求值5次。</p><p>令人欣慰的是，组合帮我们保证了这个问题不会有这些重复。</p><p>当你计算<code>pow5(3+1)</code>的时候，JavaScript并不会去展开成<code>(3+1)*(3+1)...*(3+1)</code>这种形式，而是直接变成了<code>pow5(4)</code>，最后的结果是1024。</p><p>也就是说，函数的每个自变量（编程语言里面我们会把他们叫做参数（argument））会先被求值，得到他们的值以后才会带入计算。</p><p>*请记住我们现在讨论的这个问题，后面会展开并且深入地探讨。</p><h2 id="练习" tabindex="-1">练习 <a class="header-anchor" href="#练习" aria-hidden="true">#</a></h2><ul><li>请思考，如果函数的参数在代入函数之前并不进行强制求值，<code>pow5(pow5(pow5(pow5(5))))</code>展开后共计算多少次乘法。</li><li>强制求值可能会造成的问题有哪些。</li></ul></div></div><footer class="page-footer" data-v-7eddb2c4 data-v-fb8d84c6><div class="edit" data-v-fb8d84c6><div class="edit-link" data-v-fb8d84c6 data-v-1ed99556><!----></div></div><div class="updated" data-v-fb8d84c6><!----></div></footer><div class="next-and-prev-link" data-v-7eddb2c4 data-v-38ede35f><div class="container" data-v-38ede35f><div class="prev" data-v-38ede35f><a class="link" href="/ch01_environment" data-v-38ede35f><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="icon icon-prev" data-v-38ede35f><path d="M19,11H7.4l5.3-5.3c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-7,7c-0.1,0.1-0.2,0.2-0.2,0.3c-0.1,0.2-0.1,0.5,0,0.8c0.1,0.1,0.1,0.2,0.2,0.3l7,7c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3c0.4-0.4,0.4-1,0-1.4L7.4,13H19c0.6,0,1-0.4,1-1S19.6,11,19,11z"></path></svg><span class="text" data-v-38ede35f>环境</span></a></div><div class="next" data-v-38ede35f><a class="link" href="/ch03_procedure" data-v-38ede35f><span class="text" data-v-38ede35f>过程</span><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="icon icon-next" data-v-38ede35f><path d="M19.9,12.4c0.1-0.2,0.1-0.5,0-0.8c-0.1-0.1-0.1-0.2-0.2-0.3l-7-7c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l5.3,5.3H5c-0.6,0-1,0.4-1,1s0.4,1,1,1h11.6l-5.3,5.3c-0.4,0.4-0.4,1,0,1.4c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3l7-7C19.8,12.6,19.9,12.5,19.9,12.4z"></path></svg></a></div></div></div><!--[--><!--]--></div></main></div><!----><!--]--></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"glossary.md\":\"b93c45f8\",\"summary.md\":\"a7cd9f93\",\"ch01_environment.md\":\"f6bec722\",\"ch02_computation.md\":\"d35dc0f5\",\"ch03_procedure.md\":\"96284ceb\",\"ch04_encoding.md\":\"869302a4\",\"ch05_sequence.md\":\"0824aac4\",\"ch06_data.md\":\"432da640\",\"ch07_state.md\":\"cc3a100a\",\"ch08_reference.md\":\"8799898c\",\"ch09_closure.md\":\"81452677\",\"ch10_object.md\":\"f22df407\",\"ch11_concurrency.md\":\"ab368c0b\",\"index.md\":\"b9ce94fd\",\"intro.md\":\"5b7292a2\",\"stream.md\":\"a705d840\"}")</script>
+    <script type="module" async src="/assets/app.2fe5d9c1.js"></script>
+    
+  </body>
+</html>

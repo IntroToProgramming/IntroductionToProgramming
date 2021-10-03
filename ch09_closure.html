@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>闭包 | 编程导引</title>
+    <meta name="description" content="A VitePress site">
+    <link rel="stylesheet" href="/assets/style.cac40d77.css">
+    <link rel="modulepreload" href="/assets/Home.b545b89c.js">
+    <link rel="modulepreload" href="/assets/app.2fe5d9c1.js">
+    <link rel="modulepreload" href="/assets/ch09_closure.md.81452677.lean.js">
+    <link rel="modulepreload" href="/assets/app.2fe5d9c1.js">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?c522f795b036ecc6e5446ce20e40ae9f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+            </script>
+    <script>
+window.MathJax = {
+    tex: {
+        inlineMath: [['$', '$']]
+    },
+    svg: {
+        fontCache: 'global'
+    }
+};
+
+(function () {
+    var script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
+    script.async = true;
+    document.head.appendChild(script);
+})();
+setInterval(() => window.MathJax.typeset(), 700);
+</script>
+    <meta name="twitter:title" content="闭包 | 编程导引">
+    <meta property="og:title" content="闭包 | 编程导引">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="theme"><header class="nav-bar" data-v-675d8756><div class="sidebar-button" data-v-675d8756><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" class></path></svg></div><a class="nav-bar-title" href="/" aria-label="编程导引, back to home" data-v-675d8756 data-v-4a583abe><!----> 编程导引</a><div class="flex-grow" data-v-675d8756></div><div class="nav" data-v-675d8756><nav class="nav-links" data-v-675d8756 data-v-eab3edfe><!--[--><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/intro" data-v-b8818f8c>编程导引 <!----></a></div></div><!--]--><!----><!----></nav></div><!--[--><!--]--></header><aside class="sidebar" data-v-83e92a68><nav class="nav-links nav" data-v-83e92a68 data-v-eab3edfe><!--[--><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/intro" data-v-b8818f8c>编程导引 <!----></a></div></div><!--]--><!----><!----></nav><!--[--><!--]--><ul class="sidebar-links" data-v-83e92a68><!--[--><li class="sidebar-link"><a class="sidebar-link-item" href="/intro">引言</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch01_environment">环境</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch02_computation">计算</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch03_procedure">过程</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch04_encoding">编码</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch05_sequence">序列</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch06_data">数据</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch07_state">状态</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch08_reference">引用</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item active" href="/ch09_closure">闭包</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch10_object">对象</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/ch11_concurrency">并发</a><!----></li><!--]--></ul><!--[--><!--]--></aside><!-- TODO: make this button accessible --><div class="sidebar-mask"></div><main class="page" data-v-7eddb2c4><div class="container" data-v-7eddb2c4><!--[--><!--]--><div style="position:relative;" class="content" data-v-7eddb2c4><div><h1 id="闭包" tabindex="-1">闭包 <a class="header-anchor" href="#闭包" aria-hidden="true">#</a></h1></div></div><footer class="page-footer" data-v-7eddb2c4 data-v-fb8d84c6><div class="edit" data-v-fb8d84c6><div class="edit-link" data-v-fb8d84c6 data-v-1ed99556><!----></div></div><div class="updated" data-v-fb8d84c6><!----></div></footer><div class="next-and-prev-link" data-v-7eddb2c4 data-v-38ede35f><div class="container" data-v-38ede35f><div class="prev" data-v-38ede35f><a class="link" href="/ch08_reference" data-v-38ede35f><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="icon icon-prev" data-v-38ede35f><path d="M19,11H7.4l5.3-5.3c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-7,7c-0.1,0.1-0.2,0.2-0.2,0.3c-0.1,0.2-0.1,0.5,0,0.8c0.1,0.1,0.1,0.2,0.2,0.3l7,7c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3c0.4-0.4,0.4-1,0-1.4L7.4,13H19c0.6,0,1-0.4,1-1S19.6,11,19,11z"></path></svg><span class="text" data-v-38ede35f>引用</span></a></div><div class="next" data-v-38ede35f><a class="link" href="/ch10_object" data-v-38ede35f><span class="text" data-v-38ede35f>对象</span><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="icon icon-next" data-v-38ede35f><path d="M19.9,12.4c0.1-0.2,0.1-0.5,0-0.8c-0.1-0.1-0.1-0.2-0.2-0.3l-7-7c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l5.3,5.3H5c-0.6,0-1,0.4-1,1s0.4,1,1,1h11.6l-5.3,5.3c-0.4,0.4-0.4,1,0,1.4c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3l7-7C19.8,12.6,19.9,12.5,19.9,12.4z"></path></svg></a></div></div></div><!--[--><!--]--></div></main></div><!----><!--]--></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"glossary.md\":\"b93c45f8\",\"summary.md\":\"a7cd9f93\",\"ch01_environment.md\":\"f6bec722\",\"ch02_computation.md\":\"d35dc0f5\",\"ch03_procedure.md\":\"96284ceb\",\"ch04_encoding.md\":\"869302a4\",\"ch05_sequence.md\":\"0824aac4\",\"ch06_data.md\":\"432da640\",\"ch07_state.md\":\"cc3a100a\",\"ch08_reference.md\":\"8799898c\",\"ch09_closure.md\":\"81452677\",\"ch10_object.md\":\"f22df407\",\"ch11_concurrency.md\":\"ab368c0b\",\"index.md\":\"b9ce94fd\",\"intro.md\":\"5b7292a2\",\"stream.md\":\"a705d840\"}")</script>
+    <script type="module" async src="/assets/app.2fe5d9c1.js"></script>
+    
+  </body>
+</html>

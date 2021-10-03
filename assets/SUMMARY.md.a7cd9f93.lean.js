@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a,d as l}from"./app.2fe5d9c1.js";const p='{"title":"Table of contents","description":"","frontmatter":{},"relativePath":"SUMMARY.md","lastUpdated":1633282284489}',c={},h=l('',2),i=[h];function r(o,n,_,s,f,d){return a(),t("div",null,i)}var u=e(c,[["render",r]]);export{p as __pageData,u as default};
