@@ -1,12 +1,10 @@
 {
-
   "scripts": {
-    "build": "vuepress build",
-    "dev": "vuepress dev"
+    "build": "vitepress build docs",
+    "dev": "vitepress dev docs"
   },
   "devDependencies": {
-    "@area403/markdown-it-mathjax": "^1.0.0",
-    "vuepress": "^1.8.0",
-    "vuepress-plugin-mathjax": "^1.2.8"
+    "markdown-it": "^12.2.0",
+    "vitepress": "^0.19.2"
   }
 }

@@ -3,7 +3,7 @@ home: true
 heroText: 编程导引
 tagline: Introduction to Programming
 actionText: 开始阅读 →
-actionLink: /book/
+actionLink: /intro
 # features:
 # - title: 简洁至上
 #   details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。

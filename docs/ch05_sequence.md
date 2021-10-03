@@ -103,7 +103,7 @@ content.length // 6
 
 就像这张图片描述的：
 
-![list](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Cons-cells.svg/320px-Cons-cells.svg.png)
+![list](./res/images/cons-cells.png)
 
 这种结构被称为链接列表（也叫链表，Linked List）在上世纪五十年代就已经设计用于实际的程序。链表这种结构非常的灵活，可以很轻松的在任意位置添加或者删除数据。因为并不需要内存结构上的连续，所有的位序关系都是靠前一个元素和后一个元素之间的链接关系来确定，而添加或者删除数据只要改变一下这种链接关系就可以了。
 

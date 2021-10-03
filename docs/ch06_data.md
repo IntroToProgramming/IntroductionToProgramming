@@ -88,7 +88,7 @@ let arith = {
 
 这里我们要拿前面提到的一个例子来说事儿了。
 
-![list](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Cons-cells.svg/320px-Cons-cells.svg.png)
+![list](./res/images/cons-cells.png)
 
 看这张图，去掉这个list的第一个节点，结果得到的还是一个list。同样地，在这个节点上面再加一个节点，得到的也依然还是一个list。
 
