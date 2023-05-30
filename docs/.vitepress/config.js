@@ -19,7 +19,17 @@ module.exports = {
             { text: "对象", link: '/ch10_object' },
             { text: "并发", link: '/ch11_concurrency' },
         ],
+        footer: {
+            copyright: "CC-BY 4.0 Licensed | Copyright © 2015-present Kimmy Leo"
+        },
     },
+    
+    markdown: {
+        config: (md) => {
+            md.use(require('markdown-it-katex'))
+        }
+    },
+
     
     head: [
         [
@@ -37,27 +47,11 @@ var _hmt = _hmt || [];
             `
         ],
         [
-            "script",
-            {},
-
-            `
-window.MathJax = {
-    tex: {
-        inlineMath: [['$', '$']]
-    },
-    svg: {
-        fontCache: 'global'
-    }
-};
-
-(function () {
-    var script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
-    script.async = true;
-    document.head.appendChild(script);
-})();
-setInterval(() => window.MathJax.typeset(), 700);
-`
-        ],
+            "link",
+            {
+                "rel": "stylesheet",
+                "href": "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css"
+            }
+        ]
     ]
 }

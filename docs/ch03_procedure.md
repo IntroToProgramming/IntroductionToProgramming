@@ -13,8 +13,8 @@ description: 程序的基本控制结构有哪几种？递归和循环的区别�
 $$
 |x|
  = abs(x) = \begin{cases}
-x, &x\ge0\cr
--x, &x\lt0\cr
+x, &x\ge0 \\
+-x, &x\lt0
 \end{cases}
 $$
 
@@ -59,8 +59,8 @@ function pow(x, 5) { return pow(x, 4) * x; }
 
 $$
 pow(x, y) = \begin{cases}
-x, &y=1\cr
-pow(x, y -1)\times x, &y>1\cr
+x, &y=1 \\
+pow(x, y -1)\times x, &y>1
 \end{cases}
 $$
 

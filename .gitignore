@@ -8,3 +8,5 @@ dist/
 docs/.vitepress/dist/
 
 *.log
+
+docs/.vitepress/cache

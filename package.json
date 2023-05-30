@@ -4,7 +4,7 @@
     "dev": "vitepress dev docs"
   },
   "devDependencies": {
-    "markdown-it": "^12.2.0",
-    "vitepress": "^0.19.2"
+    "markdown-it-katex": "^2.0.3",
+    "vitepress": "1.0.0-alpha.73"
   }
 }
