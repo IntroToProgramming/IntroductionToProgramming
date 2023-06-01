@@ -60,7 +60,6 @@
 
 ## 目录
 
-
 * [引言](intro.md)
 * [环境](ch01_environment.md)
 * [计算](ch02_computation.md)
@@ -76,28 +75,16 @@
 
 ## 参与贡献
 
-本书的源码托管在[github:kenpusney/i2p-the-book](https://github.com/kenpusney/i2p-the-book)仓库，你可以提交issue或者pull request贡献和改进本书。
+本书的源码托管在 GitHub [IntroToProgramming/IntroductionToProgramming](https://github.com/IntroToProgramming/IntroductionToProgramming)仓库，你可以提交issue或者pull request贡献和改进本书。
 
 ## 支持我
 
-### 关注我的公众号获取更新：
+欢迎关注我的微信公众号轻技术（lightych）或者[Telegram Lightych 频道](https://t.me/lightychannel)及时获取更新。
 
-<img alt="微信公众号" src="./res/images/wechat-mp-qrcode.jpg" width="256"/>
+### 特别感谢以下朋友的资助
 
-#### 资助我创作：
-
-微信二维码：
-
-<img alt="Buy me a coffee" src="./res/images/wechat-pay-qrcode.jpg" width="256"/>
-
-
-或点击[我的 Paypal 链接](http://paypal.me/kenpusney)给予帮助。
-
-###### 特别感谢以下朋友的资助
-
-  - [esrever10](https://github.com/esrever10)
-  - [karakapi](https://github.com/karakapi)
-  - [负一的平方根](http://sqrt-1.me)
-  - [linkgod](http://www.linkgod.net)
-  - [shellvon](https://github.com/shellvon) & [tingoo](https://github.com/tingoo)
-
+* [esrever10](https://github.com/esrever10)
+* [karakapi](https://github.com/karakapi)
+* [负一的平方根](http://sqrt-1.me)
+* [linkgod](http://www.linkgod.net)
+* [shellvon](https://github.com/shellvon) & [tingoo](https://github.com/tingoo)
