@@ -6,7 +6,7 @@ hero:
     tagline: "从零开始你的计算机编程之旅"
     actions:
         -   text: 开始阅读 →
-            link: /intro
+            link: /chapters/intro
             theme: brand
 # features:
 #   - icon: 🛠️
