@@ -41,4 +41,11 @@ JavaScript的环境触手可及。在电脑端你可以随时打开一个现代�
 
 MDN 中对[浏览器开发者工具](https://developer.mozilla.org/zh-CN/docs/Learn/Discover_browser_developer_tools)和[基本的工具软件](https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/Installing_basic_software)有更为完整的介绍，可以参考。如果你想了解更多关于Web设计和开发的知识，MDN也有完备的文档供参考。
 
+## 延伸阅读
+
+* [进程与线程 Process & Thread](../reference/process-and-thread.md)
+* [阻塞与非阻塞 Blocking & Non-blocking](../reference/blocking-nonblocking.md)
+* [同步与异步 Sync & Async](../reference/sync-async.md)
+* [调用栈 Call Stack](../reference/call-stack.md)
+
 一切准备就绪的话，我们就开始吧。

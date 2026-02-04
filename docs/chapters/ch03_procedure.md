@@ -202,7 +202,7 @@ function pow(x, y, prod = 1) {
     }
     y = y - 1;
     prod*=x;
-    return prow(x, y, prod);
+    return pow(x, y, prod);
 }
 ```
 
@@ -229,6 +229,23 @@ function pow(x, y) {
     return prod;
 }
 ```
+
+### 递归树与效率（补充）
+
+递归在表达结构上很自然，但有时会重复计算。
+
+以斐波那契为例（常用定义：`fib(0)=0, fib(1)=1`）：
+
+```javascript
+function fib(n) {
+    if (n <= 1) return n;
+    return fib(n - 1) + fib(n - 2);
+}
+```
+
+当 `n` 增大时，`fib(n-2)` 等子问题会被重复计算很多次，调用次数增长很快。把它改成尾递归或循环，可以避免这种重复。
+
+> 提醒：JavaScript 规范并不保证“尾调用优化”，很多运行时也没有开启，所以尾递归更多是理解思路，实际工程里常常直接用循环。
 
 ## 短路求值
 
@@ -272,3 +289,8 @@ function pow(x, y) {
 * 用以上代码解释短路求值
 * 请使用顺序、分支、循环来描述现实中的一些过程。
 
+## 延伸阅读
+
+* [递归 Recursion](../reference/recursion.md)
+* [调用栈 Call Stack](../reference/call-stack.md)
+* [尾调用优化 Tail Call Optimization](../reference/tail-call-optimization.md)

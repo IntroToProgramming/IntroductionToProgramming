@@ -134,8 +134,32 @@ $$
 
 \*请记住我们现在讨论的这个问题，后面会展开并且深入地探讨。
 
+### 补充：函数的可组合性
+
+函数的组合不仅仅是数学里的“代入”，也可以用于日常操作的拼装。比如我们想要“排序后再反转”的结果：
+
+```javascript
+function sorted(array) {
+    return array.slice().sort();
+}
+
+function reversed(array) {
+    return array.slice().reverse();
+}
+
+function sortReversed(array) {
+    return reversed(sorted(array));
+}
+```
+
+组合的意义在于：**用小而清晰的步骤，拼出更复杂的行为**。如果你想对数字排序，需要提供比较器（后面“作为数据的过程”会讲到）。
+
 ## 练习
 
 * 请思考，如果函数的参数在代入函数之前并不进行强制求值，`pow5(pow5(pow5(pow5(5))))`展开后共计算多少次乘法。
 * 强制求值可能会造成的问题有哪些。
 
+## 延伸阅读
+
+* [复杂度 Complexity](../reference/complexity.md)
+* [浮点数 Floating Point](../reference/floating-point.md)

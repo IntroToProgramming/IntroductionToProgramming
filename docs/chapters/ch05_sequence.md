@@ -131,11 +131,121 @@ content.length // 6
 
 ## 生成器
 
-很多时候我们的序列是通过某种规则产生的，而这种规则
+很多时候我们的序列是通过某种规则产生的，而这种规则并不会一次性把所有元素都算出来。
+
+比如自然数、斐波那契、日志流、用户滚动加载的结果……这类序列可能很长，甚至没有终点。如果你强行把它们“全算出来”，要么没必要，要么根本算不完。
+
+这时候就需要**生成器**（Generator）和**迭代器**（Iterator）：让序列“按需生产”，需要一个元素就产出一个，产完就停。
+
+### 迭代器与可迭代对象
+
+在 JavaScript 里，迭代器是一个有 `next()` 方法的对象，`next()` 返回 `{ value, done }`：
+
+```javascript
+let counter = {
+    current: 0,
+    next() {
+        return { value: this.current++, done: false };
+    }
+};
+
+counter.next(); // { value: 0, done: false }
+counter.next(); // { value: 1, done: false }
+```
+
+而**可迭代对象**（Iterable）是指“可以被 `for...of` 遍历”的对象，它们内部会提供一个迭代器。
+
+### 生成器函数
+
+生成器函数用 `function*` 定义，用 `yield` 产出元素：
+
+```javascript
+function* range(start, end) {
+    for (let i = start; i <= end; i++) {
+        yield i;
+    }
+}
+
+for (let n of range(1, 5)) {
+    console.log(n);
+}
+```
+
+这就像一个“可暂停”的函数：每次 `yield` 交出一个值，下次从上次停下的位置继续。
+
+更有趣的是，可以定义**无穷序列**：
+
+```javascript
+function* naturals() {
+    let n = 0;
+    while (true) {
+        yield n++;
+    }
+}
+```
+
+但是要小心：无穷序列如果直接展开，会卡死。
+
+所以通常会配合一个“截断器”（take）：
+
+```javascript
+function* take(n, iterable) {
+    let i = 0;
+    for (let item of iterable) {
+        if (i++ >= n) break;
+        yield item;
+    }
+}
+
+[...take(5, naturals())]; // [0, 1, 2, 3, 4]
+```
+
+生成器的意义在于：**节省内存、延迟计算、按需处理**。
+这也是很多“流式处理”能成立的基础。
+
+### 扩展阅读：函数式惰性序列（可跳过）
+
+除了 `function*`，还可以用“函数 + 闭包”来模拟惰性序列（按需展开）。
+
+```javascript
+function cons(x, y) {
+    return f => f(x, y);
+}
+
+function head(s) {
+    return s((x, y) => x);
+}
+
+function tail(s) {
+    return s((x, y) => y);
+}
+
+function zeros() {
+    return cons(0, () => zeros());
+}
+
+function take(n, s) {
+    if (n === 0) return [];
+    return [head(s), ...take(n - 1, tail(s)())];
+}
+
+take(5, zeros()); // [0, 0, 0, 0, 0]
+```
+
+这里 `tail` 返回的是一个函数，只有在你“强制求值”的时候（调用它）才会继续生成后续内容，这就是惰性（lazy）的核心思路。
 
 ### 练习：最长公共子序列（Longest Common Subsequence）
 
 通常我们会对两个序列的内容进行对比，比较这两个序列有什么地方不同。这就是典型的LCS问题。LCS的应用很多，大部分版本控制系统的核心逻辑中就有它的存在。
 
-请参阅Wikipedia对LCS问题的分析和讨论，尝试实现求LCS的算法，并试分析该算法要求迭代器至少要属于哪个category。
+请参阅Wikipedia对LCS问题的分析和讨论，尝试实现求LCS的算法，并分析：
 
+* 如果用 JavaScript 实现，你至少需要“可重复遍历”的序列，还是“可随机访问”的序列？
+* 如果你了解 C++ 的迭代器分类，请判断 LCS 至少需要哪一类迭代器（比如 Forward / Random Access）。
+
+> 提示：LCS 经典算法需要频繁访问任意位置。
+
+## 延伸阅读
+
+* [复杂度 Complexity](../reference/complexity.md)
+* [缓存 Cache](../reference/cache.md)
