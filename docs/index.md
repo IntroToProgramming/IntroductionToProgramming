@@ -5,7 +5,7 @@ hero:
     text: Introduction to Programming
     tagline: "从零开始你的计算机编程之旅"
     image:
-        src: /res/hero.png
+        src: /hero.png
         alt: Introduction to Programming
     actions:
         -   text: 开始阅读 →
