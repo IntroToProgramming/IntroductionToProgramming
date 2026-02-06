@@ -8,7 +8,7 @@ description: 计算机可以完成哪些基本运算？如何把运算进行组�
 
 计算机（Computer）是干嘛的？当然是计算（Computing）啦。
 
-在浏览器的控制台输入以下代码：
+在浏览器的控制台输入以下代码（如果还没打开过控制台，请先看[浏览器开发者工具与 Console](../guides/browser-devtools.md)）：
 
 ```javascript
 1 + 1
@@ -161,5 +161,5 @@ function sortReversed(array) {
 
 ## 延伸阅读
 
-* [复杂度 Complexity](../reference/complexity.md)
-* [浮点数 Floating Point](../reference/floating-point.md)
+* [复杂度 Complexity](../reference/glossary/complexity.md)
+* [浮点数 Floating Point](../reference/glossary/floating-point.md)

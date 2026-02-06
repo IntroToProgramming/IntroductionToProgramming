@@ -145,6 +145,6 @@ enqueue(() => withdraw(200));
 
 ## 延伸阅读
 
-* [事件循环 Event Loop](../reference/event-loop.md)
-* [竞态条件 Race Condition](../reference/race-condition.md)
-* [死锁 Deadlock](../reference/deadlock.md)
+* [事件循环 Event Loop](../reference/glossary/event-loop.md)
+* [竞态条件 Race Condition](../reference/glossary/race-condition.md)
+* [死锁 Deadlock](../reference/glossary/deadlock.md)

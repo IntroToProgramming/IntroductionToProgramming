@@ -247,5 +247,5 @@ take(5, zeros()); // [0, 0, 0, 0, 0]
 
 ## 延伸阅读
 
-* [复杂度 Complexity](../reference/complexity.md)
-* [缓存 Cache](../reference/cache.md)
+* [复杂度 Complexity](../reference/glossary/complexity.md)
+* [缓存 Cache](../reference/glossary/cache.md)

@@ -174,6 +174,6 @@ Unicode包含的字符量足够的多，于是就要设计比ASCII更充分大�
 
 ## 延伸阅读
 
-* [编码与字符集 Encoding & Charset](../reference/encoding-and-charset.md)
-* [Unicode / UTF-8](../reference/unicode-utf8.md)
-* [浮点数 Floating Point](../reference/floating-point.md)
+* [编码与字符集 Encoding & Charset](../reference/glossary/encoding-and-charset.md)
+* [Unicode / UTF-8](../reference/glossary/unicode-utf8.md)
+* [浮点数 Floating Point](../reference/glossary/floating-point.md)

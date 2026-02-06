@@ -10,7 +10,7 @@ JavaScript是目前使用最广泛的编程语言之一。作为互联网和移�
 
 JavaScript的诞生和发展也颇具传奇色彩，Brendan Eich在几天的时间内设计并实现了这门编程语言，影响了后面几十年的软件和技术的发展。如今几乎每一个设备都接入了JavaScript，深入到了我们生活的方方面面。作为一门工业级的编程语言，JavaScript由欧洲计算机制造商协会（ECMA）制定标准化的行为和定义，来规范这个语言的使用和发展方向。TC39技术委员会也一直在更新JavaScript的功能，让这个有二十多年历史的旧技术不断焕发新的活力。
 
-JavaScript的环境触手可及。在电脑端你可以随时打开一个现代的浏览器，页面上右键菜单中选择“Inspect”或者“查看/检查元素”，选择“控制台（Console）”标签。如果你是在移动端或者浏览器不支持，也可以通过一些工具比如[移动端Console](http://code.hnldesign.nl/demo/hnl.MobileConsole.html)来体验JavaScript控制台。
+JavaScript 的环境触手可及。在电脑端你可以随时打开一个现代的浏览器，页面上右键菜单中选择“Inspect”或者“查看/检查元素”，然后切换到“控制台（Console）”标签。如果你还没用过开发者工具，请先阅读[浏览器开发者工具与 Console](../guides/browser-devtools.md)。
 
 ## 编写代码
 
@@ -37,15 +37,18 @@ JavaScript的环境触手可及。在电脑端你可以随时打开一个现代�
 
 比如上面的代码，就是在控制台打印“hello world”。
 
-本书推荐使用[Visual Studio Code](https://code.visualstudio.com/)作为基本的代码编辑工具。你可以在官网进行下载和安装。官网也有详细的使用教程。
+本书推荐使用 Visual Studio Code 作为基本的代码编辑工具，安装与上手请参考[安装与上手 VS Code](../guides/vscode.md)。
 
-MDN 中对[浏览器开发者工具](https://developer.mozilla.org/zh-CN/docs/Learn/Discover_browser_developer_tools)和[基本的工具软件](https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/Installing_basic_software)有更为完整的介绍，可以参考。如果你想了解更多关于Web设计和开发的知识，MDN也有完备的文档供参考。
+当你希望在本地运行 JavaScript 或 TypeScript 时，需要安装 Node.js 与 TypeScript，对应的上手步骤见：
+
+* [安装 Node.js 并在 VS Code 运行 JavaScript](../guides/nodejs.md)
+* [TypeScript 入门：安装、编译与运行](../guides/typescript.md)
 
 ## 延伸阅读
 
-* [进程与线程 Process & Thread](../reference/process-and-thread.md)
-* [阻塞与非阻塞 Blocking & Non-blocking](../reference/blocking-nonblocking.md)
-* [同步与异步 Sync & Async](../reference/sync-async.md)
-* [调用栈 Call Stack](../reference/call-stack.md)
+* [进程与线程 Process & Thread](../reference/glossary/process-and-thread.md)
+* [阻塞与非阻塞 Blocking & Non-blocking](../reference/glossary/blocking-nonblocking.md)
+* [同步与异步 Sync & Async](../reference/glossary/sync-async.md)
+* [调用栈 Call Stack](../reference/glossary/call-stack.md)
 
 一切准备就绪的话，我们就开始吧。

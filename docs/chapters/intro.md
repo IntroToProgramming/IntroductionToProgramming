@@ -34,11 +34,20 @@
 
 ## JavaScript
 
-本书选择使用JavaScript来讲述编程中的各种思想和概念。
+本书选择使用 JavaScript 来讲述编程中的各种思想和概念。
 
-我们并不是在讲述JavaScript这门编程语言，只是通过JavaScript和其提供的丰富的方便特性，来讲述关于“程序设计”的内容。任何与JavaScript细节相关的东西，可以参考[Mozilla Developer Network](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)，对于特定的主题，我也会专门列出可以参阅的链接。[StackOverflow](http://stackoverflow.com/questions/tagged/javascript)上也有丰富的资源来解答你的疑惑。
+我们并不是在讲述 JavaScript 这门编程语言的细节，只是通过它来讲述关于“程序设计”的内容。当你需要查阅资料时，请从本书的“工具上手指南”里整理好的官方入口开始查找。
 
-作为入门书籍，为了直观地表述各种概念或者原理，本书可能会使用一些非专业词汇，或者与准确定义有偏差的理解。JavaScript作为一种生产力工具，其准确定义和行为以[ECMA 262](https://tc39.es/ecma262/)国际标准为准。对专业人员如有任何困惑或者争议的点，请参考标准文档的描述。同样，如果你通过本书对编程和相关的东西产生了兴趣，希望深入了解和学习，也请使用专业的书籍和资料。本书只是作为入门的引导，不对专业内容做解释和定义。
+作为入门书籍，为了直观地表述各种概念或者原理，本书可能会使用一些非专业词汇，或者与准确定义有偏差的理解。JavaScript 作为一种生产力工具，其准确定义和行为以 ECMA-262 国际标准为准。对专业人员如有任何困惑或者争议的点，请参考标准文档的描述。同样，如果你通过本书对编程和相关的东西产生了兴趣，希望深入了解和学习，也请使用专业的书籍和资料。本书只是作为入门的引导，不对专业内容做解释和定义。
+
+## 学习方式与工具
+
+阅读过程中你会用到浏览器开发者工具（Inspector/Console），也会在本地使用 VS Code、Node.js 和 TypeScript。如果你是第一次接触这些工具，建议先阅读：
+
+* [浏览器开发者工具与 Console](../guides/browser-devtools.md)
+* [安装与上手 VS Code](../guides/vscode.md)
+* [安装 Node.js 并在 VS Code 运行 JavaScript](../guides/nodejs.md)
+* [TypeScript 入门：安装、编译与运行](../guides/typescript.md)
 
 ## 更新状态
 

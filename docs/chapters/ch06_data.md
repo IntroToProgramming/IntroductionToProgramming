@@ -272,5 +272,5 @@ function bfs(root, visit) {
 
 ## 延伸阅读
 
-* [值语义与引用语义 Value vs. Reference](../reference/value-reference.md)
-* [序列化 Serialization](../reference/serialization.md)
+* [值语义与引用语义 Value vs. Reference](../reference/glossary/value-reference.md)
+* [序列化 Serialization](../reference/glossary/serialization.md)

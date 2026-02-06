@@ -133,5 +133,5 @@ let light = {
 
 ## 延伸阅读
 
-* [不可变性 Immutability](../reference/immutability.md)
-* [竞态条件 Race Condition](../reference/race-condition.md)
+* [不可变性 Immutability](../reference/glossary/immutability.md)
+* [竞态条件 Race Condition](../reference/glossary/race-condition.md)

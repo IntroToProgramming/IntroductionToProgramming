@@ -176,5 +176,5 @@ outer()();
 
 ## 延伸阅读
 
-* [词法作用域 Lexical Scope](../reference/lexical-scope.md)
-* [垃圾回收 Garbage Collection](../reference/garbage-collection.md)
+* [词法作用域 Lexical Scope](../reference/glossary/lexical-scope.md)
+* [垃圾回收 Garbage Collection](../reference/glossary/garbage-collection.md)

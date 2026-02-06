@@ -291,6 +291,6 @@ function pow(x, y) {
 
 ## 延伸阅读
 
-* [递归 Recursion](../reference/recursion.md)
-* [调用栈 Call Stack](../reference/call-stack.md)
-* [尾调用优化 Tail Call Optimization](../reference/tail-call-optimization.md)
+* [递归 Recursion](../reference/glossary/recursion.md)
+* [调用栈 Call Stack](../reference/glossary/call-stack.md)
+* [尾调用优化 Tail Call Optimization](../reference/glossary/tail-call-optimization.md)

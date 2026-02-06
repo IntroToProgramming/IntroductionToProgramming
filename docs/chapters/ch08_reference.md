@@ -200,6 +200,6 @@ console.log(a, b, c);
 
 ## 延伸阅读
 
-* [值语义与引用语义 Value vs. Reference](../reference/value-reference.md)
-* [垃圾回收 Garbage Collection](../reference/garbage-collection.md)
-* [栈与堆 Stack & Heap](../reference/stack-and-heap.md)
+* [值语义与引用语义 Value vs. Reference](../reference/glossary/value-reference.md)
+* [垃圾回收 Garbage Collection](../reference/glossary/garbage-collection.md)
+* [栈与堆 Stack & Heap](../reference/glossary/stack-and-heap.md)

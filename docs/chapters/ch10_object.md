@@ -140,4 +140,4 @@ bird.fly();
 
 ## 延伸阅读
 
-* [原型链 Prototype Chain](../reference/prototype-chain.md)
+* [原型链 Prototype Chain](../reference/glossary/prototype-chain.md)
