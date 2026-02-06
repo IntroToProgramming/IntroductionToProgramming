@@ -15,6 +15,7 @@ const chaptersAndGuides = [
       { text: "闭包", link: "/chapters/ch09_closure" },
       { text: "对象", link: "/chapters/ch10_object" },
       { text: "并发", link: "/chapters/ch11_concurrency" },
+      { text: "练习答案与提示", link: "/chapters/answers" },
     ],
   },
   {
