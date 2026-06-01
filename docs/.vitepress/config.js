@@ -39,13 +39,23 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: "编程导引", link: "/chapters/intro" },
-      { text: "AI 自动化", link: "/agentic-ai/" },
+      { text: "Agentic AI", link: "/agentic-ai/" },
       { text: "参考", link: "/reference/glossary" },
     ],
 
     sidebar: {
       "/chapters/": chaptersAndGuides,
-      "/reference/": [{ text: "概念解释", link: "/reference/glossary" }],
+      "/reference/": [
+        {
+          text: "参考",
+          collapsed: false,
+          items: [
+            { text: "概念解释", link: "/reference/glossary" },
+            { text: "RAG 技术详解", link: "/reference/rag-deep-dive" },
+            { text: "API 调用与 Function Calling", link: "/reference/api-interaction" },
+          ],
+        },
+      ],
       "/guides/": chaptersAndGuides,
       "/agentic-ai/": [
         {

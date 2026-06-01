@@ -74,7 +74,7 @@
 
 ## 教程大纲
 
-本教程分为六个部分。前三部分面向所有用户，后三部分面向开发者与进阶创造者。
+本教程分为六个部分，外加技术附录。前三部分面向所有用户，后三部分面向开发者与进阶创造者。
 
 ### 第一部分：AI 协同基础（AI Essentials）
 * 思维转变：从"搜索"到"生成"，理解 LLM 的概率式输出。
@@ -104,6 +104,7 @@
 
 ### 第五部分：Agent 机制与构建（Agentic System）
 * Agent 内部机制：Loop（感知→思考→行动→观察）、Run、Snapshot。
+* Memory：短期记忆与长期记忆，向量数据库的基本概念。
 * Tool Use 与 MCP：模型如何与外部世界交互。
 * 权限模型：Ask / Skip / Deny。
 * 安全意识：零信任、数据脱敏、权限边界。
@@ -112,9 +113,13 @@
 ### 第六部分：Agent 实践与治理（Agent Practice）
 * 配置与治理：Rules、Skills 的使用。
 * 指令层级：SOUL.md → AGENTS.md → Rules → Prompt。
-* Multi-agent：正确打开方式与"不一定提升效率"的场景。
+* Multi-agent：实现模式（顺序、并行、辩论、分层）与适用场景。
+* 评估与调试：结果有效性验证、避免幻觉、追踪执行过程。
 * M×N Gateway：企业级 Agent 集成的概念。
-* 反模式汇总：常见错误的集中回顾。
+
+### 技术附录
+* API 调用与 Function Calling：用 JavaScript 调用 LLM、Embedding、Image API。
+* RAG 技术详解：向量嵌入、HNSW 索引、混合搜索策略。
 
 ## 小结
 
