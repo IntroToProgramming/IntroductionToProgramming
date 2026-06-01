@@ -1,8 +1,15 @@
 ---
+layout: home
+hero:
+    name: 工具指南
+    text: Tooling Guides
+    tagline: "从零开始搭建 JavaScript 学习环境的工具上手指南"
+    actions:
+        -   text: 开始阅读 →
+            link: /guides/browser-devtools
+            theme: brand
 description: 从零开始搭建 JavaScript 学习环境的工具上手指南。
 ---
-
-# 工具上手指南
 
 本书会在浏览器里做小实验，也会在本地写代码。下面这几篇指南专为零基础读者准备，按顺序完成即可：
 

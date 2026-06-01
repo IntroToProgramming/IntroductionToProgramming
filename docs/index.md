@@ -11,6 +11,9 @@ hero:
         -   text: 开始阅读 →
             link: /chapters/intro
             theme: brand
+        -   text: 工具上手 🛠️
+            link: /guides/
+            theme: alt
 # features:
 #   - icon: 🛠️
 #     title: Simple and minimal, always

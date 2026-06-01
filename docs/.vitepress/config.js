@@ -39,6 +39,7 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: "编程导引", link: "/chapters/intro" },
+      { text: "AI氛围编程", link: "/agentic-ai/" },
       { text: "参考", link: "/reference/glossary" },
     ],
 
@@ -46,6 +47,20 @@ module.exports = {
       "/chapters/": chaptersAndGuides,
       "/reference/": [{ text: "概念解释", link: "/reference/glossary" }],
       "/guides/": chaptersAndGuides,
+      "/agentic-ai/": [
+          {
+            text: "AI氛围编程",
+            collapsed: false,
+            items: [
+              { text: "介绍", link: "/agentic-ai/intro" },
+              { text: "AI 协同基础", link: "/agentic-ai/ai-essentials" },
+              { text: "多模态创作能力", link: "/agentic-ai/multimodal-creativity" },
+              { text: "逻辑与推理", link: "/agentic-ai/reasoning-logic" },
+              { text: "Vibe Coding 实践", link: "/agentic-ai/vibe-coding" },
+              { text: "智能体系统构建", link: "/agentic-ai/agentic-system" },
+            ]
+          }
+      ]
     },
     footer: {
       message: "CC-BY 4.0 Licensed",
