@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "avoid-ai-writing-zh": {
+      "source": "git@github.com:icimik/avoid-ai-writing-zh.git",
+      "sourceType": "git",
+      "skillPath": "SKILL.md",
+      "computedHash": "9551de6a50c30a7f8df7f8dd4b894d01b8b92a2bc1453ed9db85023493bf83e9"
+    }
+  }
+}

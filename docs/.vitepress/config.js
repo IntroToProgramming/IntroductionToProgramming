@@ -39,7 +39,7 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: "编程导引", link: "/chapters/intro" },
-      { text: "AI氛围编程", link: "/agentic-ai/" },
+      { text: "AI 自动化", link: "/agentic-ai/" },
       { text: "参考", link: "/reference/glossary" },
     ],
 
@@ -48,23 +48,27 @@ module.exports = {
       "/reference/": [{ text: "概念解释", link: "/reference/glossary" }],
       "/guides/": chaptersAndGuides,
       "/agentic-ai/": [
-          {
-            text: "AI氛围编程",
-            collapsed: false,
-            items: [
-              { text: "介绍", link: "/agentic-ai/intro" },
-              { text: "AI 协同基础", link: "/agentic-ai/ai-essentials" },
-              { text: "多模态创作能力", link: "/agentic-ai/multimodal-creativity" },
-              { text: "逻辑与推理", link: "/agentic-ai/reasoning-logic" },
-              { text: "Vibe Coding 实践", link: "/agentic-ai/vibe-coding" },
-              { text: "智能体系统构建", link: "/agentic-ai/agentic-system" },
-            ]
-          }
-      ]
+        {
+          text: "Agentic AI",
+          collapsed: false,
+          items: [
+            { text: "介绍", link: "/agentic-ai/intro" },
+            { text: "AI 协同基础", link: "/agentic-ai/ai-essentials" },
+            {
+              text: "多模态创作能力",
+              link: "/agentic-ai/multimodal-creativity",
+            },
+            { text: "逻辑与推理", link: "/agentic-ai/reasoning-logic" },
+            { text: "AI Coding 实践", link: "/agentic-ai/ai-coding" },
+            { text: "Agent 机制与构建", link: "/agentic-ai/agentic-system" },
+            { text: "Agent 实践与治理", link: "/agentic-ai/agent-practice" },
+          ],
+        },
+      ],
     },
     footer: {
       message: "CC-BY 4.0 Licensed",
-      copyright:"Copyright © 2015-present Kimmy Liu",
+      copyright: "Copyright © 2015-present Kimmy Liu",
     },
   },
 
@@ -82,7 +86,7 @@ var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?bc2f9f80827718f41c02c33dc45976cb";
-  var s = document.getElementsByTagName("script")[0]; 
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
             `,
