@@ -62,7 +62,67 @@ for await (const chunk of stream) {
 }
 ```
 
-流式输出让前端可以逐字显示结果，ChatGPT 的"打字机"效果就是这么实现的。
+流式输出让前端可以逐字显示结果，ChatGPT 的“打字机”效果就是这么实现的。
+
+### 传入图片
+
+支持视觉输入的模型可以同时接收文字和图片。消息里的 `content` 不再只是字符串，而是一个内容数组：一段文字说明，加上一张或多张图片。
+
+```javascript
+const response = await client.chat.completions.create({
+  model: "gpt-4o",
+  messages: [
+    {
+      role: "user",
+      content: [
+        {
+          type: "text",
+          text: "请描述这张图，并指出里面最重要的三个信息。",
+        },
+        {
+          type: "image_url",
+          image_url: {
+            url: "https://example.com/dashboard.png",
+          },
+        },
+      ],
+    },
+  ],
+});
+
+console.log(response.choices[0].message.content);
+```
+
+如果图片在本地，可以把它转成 Base64，再作为 Data URL 传入：
+
+```javascript
+import { readFile } from "node:fs/promises";
+
+const imageBuffer = await readFile("screenshot.png");
+const base64Image = imageBuffer.toString("base64");
+
+const response = await client.chat.completions.create({
+  model: "gpt-4o",
+  messages: [
+    {
+      role: "user",
+      content: [
+        { type: "text", text: "这张截图里的报错可能是什么原因？" },
+        {
+          type: "image_url",
+          image_url: {
+            url: `data:image/png;base64,${base64Image}`,
+          },
+        },
+      ],
+    },
+  ],
+});
+
+console.log(response.choices[0].message.content);
+```
+
+这种调用适合处理截图分析、图表解读、设计稿反馈、资料整理等任务。它和图像生成不同：这里不是让模型画图，而是让模型读取图片并回答问题。
 
 ### 使用国内模型
 
@@ -190,7 +250,7 @@ console.log(cosineSimilarity(emb1, emb2)); // 接近 1（语义相似）
 console.log(cosineSimilarity(emb1, emb3)); // 接近 0（语义无关）
 ```
 
-"什么是机器学习"和"深度学习和机器学习有什么区别"的相似度会很高，因为它们讨论的是相关话题。而"今天天气真好"和前两个的相似度会很低。
+“什么是机器学习”和“深度学习和机器学习有什么区别”的相似度会很高，因为它们讨论的是相关话题。而“今天天气真好”和前两个的相似度会很低。
 
 ## Image API：图像生成
 
@@ -226,9 +286,42 @@ const edit = await client.images.edit({
 
 > 提醒：图像生成 API 的成本比文本 API 高得多。生成一张图的费用可能是几百次文本对话的总和。开发调试时用小尺寸，确认效果后再用大尺寸。
 
+## Audio API：语音识别
+
+语音识别（ASR）的输入是音频文件，输出是文字。常见用途包括会议纪要、播客转写、视频字幕、语音笔记整理。
+
+用 Whisper 转写音频：
+
+```javascript
+import fs from "node:fs";
+
+const transcript = await client.audio.transcriptions.create({
+  model: "whisper-1",
+  file: fs.createReadStream("meeting.mp3"),
+  language: "zh",
+});
+
+console.log(transcript.text);
+```
+
+如果你想直接得到字幕格式，可以指定 `response_format`：
+
+```javascript
+const subtitles = await client.audio.transcriptions.create({
+  model: "whisper-1",
+  file: fs.createReadStream("meeting.mp3"),
+  language: "zh",
+  response_format: "srt",
+});
+
+console.log(subtitles);
+```
+
+语音识别的结果通常还需要后处理。比如分段、加标点、区分说话人、提取行动项，这些步骤可以继续交给文本模型完成。
+
 ## Function Calling：让模型调用函数
 
-Function Calling 让模型能调用你定义的函数。这是 Agent "使用工具"的底层实现。
+Function Calling 让模型能调用你定义的函数。这是 Agent “使用工具”的底层实现。
 
 ### 第一步：定义函数的 Schema
 
@@ -286,7 +379,7 @@ if (message.tool_calls) {
 
 整个流程：用户提问 → 模型决定调用函数 → 你执行函数 → 把结果返回 → 模型生成最终回答。
 
-这就是 Agent "使用工具"的底层实现。当你理解了这个流程，再回头看 Agent 的 Tool Use 和 Loop，就会明白它们是怎么工作的。
+这就是 Agent “使用工具”的底层实现。当你理解了这个流程，再回头看 Agent 的 Tool Use 和 Loop，就会明白它们是怎么工作的。
 
 ## 错误处理
 
@@ -326,15 +419,19 @@ try {
 - 国内模型大多兼容 OpenAI 格式，换 baseURL 就行。
 - Token 决定了成本，控制输入输出长度是基本功。
 - Embedding API 把文本变成向量，是 RAG 和语义搜索的基础。
+- 支持视觉输入的模型可以通过 Chat Completions 接收图片，用于截图分析、图表解读和设计反馈。
 - Image API 调用图像生成，成本比文本 API 高得多。
-- Function Calling 是 Agent "使用工具"的底层实现。
+- Audio API 可以用 Whisper 把语音转成文字，再交给文本模型做整理和总结。
+- Function Calling 是 Agent “使用工具”的底层实现。
 
 ## 练习
 
 1. 用 OpenAI SDK 写一个最简单的调用：发一条消息，打印回复。
 2. 用 Embedding API 把三段文本转成向量，计算它们两两之间的余弦相似度。
-3. 用 Image API 生成一张图片，保存到本地。
-4. 实现一个完整的 Function Calling 流程：定义一个"查询股票价格"的函数，让模型在用户问到股票时自动调用它。
+3. 用 Chat Completions 传入一张截图，让模型解释截图里的主要信息。
+4. 用 Image API 生成一张图片，保存到本地。
+5. 用 Whisper 转写一段短音频，再让文本模型总结成三条要点。
+6. 实现一个完整的 Function Calling 流程：定义一个“查询股票价格”的函数，让模型在用户问到股票时自动调用它。
 
 ## 延伸阅读
 

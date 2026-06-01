@@ -2,7 +2,7 @@
 layout: home
 hero:
   name: Agentic AI 入门指南
-  text: 从对话到 Agents
+  text: 从对话到 Agent
   tagline: 使用 Agentic AI 自动化你的一切
   image:
     src: /agentic-ai.png

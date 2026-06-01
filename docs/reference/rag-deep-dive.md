@@ -1,6 +1,6 @@
 # RAG 技术详解：向量检索与混合搜索
 
-本文是[逻辑与推理](../agentic-ai/reasoning-logic.md)的延伸阅读，详细讲解 RAG 背后的技术原理。
+本文是[高级 Prompting 与推理增强](../agentic-ai/reasoning-logic.md)的延伸阅读，详细讲解 RAG 背后的技术原理。
 
 ## 向量嵌入（Vector Embedding）
 

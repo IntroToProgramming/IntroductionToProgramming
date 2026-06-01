@@ -68,7 +68,10 @@ module.exports = {
               text: "多模态创作能力",
               link: "/agentic-ai/multimodal-creativity",
             },
-            { text: "逻辑与推理", link: "/agentic-ai/reasoning-logic" },
+            {
+              text: "高级 Prompting 与推理增强",
+              link: "/agentic-ai/reasoning-logic",
+            },
             { text: "AI Coding 实践", link: "/agentic-ai/ai-coding" },
             { text: "Agent 机制与构建", link: "/agentic-ai/agentic-system" },
             { text: "Agent 实践与治理", link: "/agentic-ai/agent-practice" },
