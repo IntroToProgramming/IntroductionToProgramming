@@ -171,6 +171,99 @@ console.log(data.choices[0].message.content);
 
 SDK 和 fetch 的关系：SDK 是对 fetch 的封装。理解 fetch 能帮你理解 SDK 在做什么，但日常开发用 SDK 更方便。
 
+## 推理模式
+
+推理模型（如 o1、o3）在回答之前会进行内部思考。这个过程会消耗额外的 token，但能显著提升复杂任务的表现。
+
+### 基本用法
+
+```javascript
+const response = await client.chat.completions.create({
+  model: "o3",
+  messages: [
+    { role: "user", content: "分析这段代码的时间复杂度，并给出优化方案" }
+  ],
+});
+
+console.log(response.choices[0].message.content);
+```
+
+推理模型会自动进行内部推理，你不需要额外配置。
+
+### 控制推理深度
+
+通过 `reasoning_effort` 参数，你可以控制模型推理的深度：
+
+```javascript
+const response = await client.chat.completions.create({
+  model: "o3",
+  reasoning_effort: "medium",  // low / medium / high
+  messages: [
+    { role: "user", content: "解释快速排序的时间复杂度" }
+  ],
+});
+```
+
+- `low`：快速推理，适合简单问题。
+- `medium`：平衡推理深度和速度（默认）。
+- `high`：深度推理，适合复杂问题，但消耗更多 token。
+
+> 提醒：推理模型的 token 价格通常更高。对于简单任务，用普通模型（如 gpt-4o）更划算。
+
+## 生成参数
+
+模型生成文本时，有几个参数可以控制输出的特性。这些参数不影响模型"理解"问题的能力，但会影响它"怎么回答"。
+
+### temperature
+
+`temperature` 控制输出的随机性，取值范围通常是 0 到 2。
+
+- **低 temperature（如 0）**：输出更确定、更集中。每次问同样的问题，得到的回答会很相似。适合需要一致性和准确性的场景，比如代码生成、数据提取。
+- **高 temperature（如 0.8）**：输出更随机、更多样。适合创意写作、头脑风暴等需要多样性的场景。
+
+```javascript
+// 低 temperature：确定性输出
+const response = await client.chat.completions.create({
+  model: "gpt-4o",
+  temperature: 0,
+  messages: [{ role: "user", content: "写一个计算斐波那契数列的函数" }],
+});
+
+// 高 temperature：创意输出
+const response = await client.chat.completions.create({
+  model: "gpt-4o",
+  temperature: 0.8,
+  messages: [{ role: "user", content: "写一首关于编程的诗" }],
+});
+```
+
+### top_p
+
+`top_p`（nucleus sampling）是另一种控制随机性的方式。它从概率最高的词开始累加，直到累积概率达到 `top_p`，然后只从这些词中选择。
+
+- `top_p = 1`：考虑所有可能的词（默认行为）。
+- `top_p = 0.9`：只从累积概率前 90% 的词中选择，过滤掉最不可能的词。
+
+```javascript
+const response = await client.chat.completions.create({
+  model: "gpt-4o",
+  top_p: 0.9,
+  messages: [{ role: "user", content: "解释量子计算" }],
+});
+```
+
+> 提醒：通常不需要同时调整 `temperature` 和 `top_p`。选择其中一个调整即可。大多数情况下，使用默认值就好。
+
+### 什么时候需要调整这些参数？
+
+大多数应用场景下，默认参数就够用了。以下是一些可能需要调整的场景：
+
+- **需要高度一致的输出**：把 `temperature` 设为 0。适合代码生成、格式化输出、数据提取。
+- **需要创意多样性**：适当提高 `temperature`（如 0.7-0.9）。适合创意写作、生成多种方案。
+- **需要过滤低概率输出**：降低 `top_p`（如 0.9）。适合需要输出更"安全"的场景。
+
+> 提醒：Agent 框架通常会帮你管理这些参数，你不需要手动设置。但理解这些参数有助于你调试 Agent 的行为——如果 Agent 的输出太随机或太死板，你可能需要调整这些参数。
+
 ## Token 管理与成本
 
 API 调用按 Token 计费。Token 是模型处理文本的最小单位，英文大约 1 个单词 ≈ 1 个 Token，中文大约 1 个字 ≈ 1.5-2 个 Token。
@@ -417,6 +510,9 @@ try {
 
 - SDK 封装了底层细节，推荐在正式项目中使用。fetch 调用帮你理解底层原理。
 - 国内模型大多兼容 OpenAI 格式，换 baseURL 就行。
+- 推理模型会自动进行内部思考，`reasoning_effort` 参数控制推理深度。
+- 流式传输让前端可以逐字显示结果，改善用户体验。
+- `temperature` 和 `top_p` 控制输出的随机性，大多数情况下使用默认值即可。
 - Token 决定了成本，控制输入输出长度是基本功。
 - Embedding API 把文本变成向量，是 RAG 和语义搜索的基础。
 - 支持视觉输入的模型可以通过 Chat Completions 接收图片，用于截图分析、图表解读和设计反馈。
