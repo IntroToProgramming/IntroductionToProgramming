@@ -35,10 +35,10 @@ const chaptersAndGuides = [
 ];
 
 module.exports = {
-  title: "编程导引",
+  title: "入门指南",
   themeConfig: {
     nav: [
-      { text: "编程导引", link: "/chapters/intro" },
+      { text: "计算机编程", link: "/chapters/" },
       { text: "Agentic AI", link: "/agentic-ai/" },
       { text: "参考", link: "/reference/glossary" },
     ],
@@ -52,7 +52,10 @@ module.exports = {
           items: [
             { text: "概念解释", link: "/reference/glossary" },
             { text: "RAG 技术详解", link: "/reference/rag-deep-dive" },
-            { text: "API 调用与 Function Calling", link: "/reference/api-interaction" },
+            {
+              text: "API 调用与 Function Calling",
+              link: "/reference/api-interaction",
+            },
           ],
         },
       ],

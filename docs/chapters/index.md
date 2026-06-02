@@ -1,20 +1,20 @@
 ---
 layout: home
-title: 入门指南
+title: 计算机编程
 hero:
-    name: 入门指南
-    text: Introduction Guides
-    tagline: "给初学者的上手之路"
+    name: 计算机编程入门指南
+    text: Introduction to Programming
+    tagline: "从零开始你的计算机编程之旅"
     image:
         src: /hero.png
         alt: Introduction to Programming
     actions:
-        -   text: 计算机编程入门指南 →
-            link: /chapters/
+        -   text: 开始阅读 →
+            link: /chapters/intro
             theme: brand
-        -   text: Agentic AI 入门指南 →
-            link: /agentic-ai/
-            theme: brand
+        -   text: 工具上手 🛠️
+            link: /guides/
+            theme: alt
 # features:
 #   - icon: 🛠️
 #     title: Simple and minimal, always

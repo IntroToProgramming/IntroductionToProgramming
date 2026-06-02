@@ -1,5 +1,6 @@
 ---
 layout: home
+title: "Agentic AI"
 hero:
   name: Agentic AI 入门指南
   text: 从对话到 Agent
