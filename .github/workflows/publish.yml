@@ -16,10 +16,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v2.1.2
-      - run: yarn
+      - run: npm ci
 
       - name: Build
-        run: yarn build
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
