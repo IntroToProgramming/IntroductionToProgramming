@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "vitepress build docs",
+    "build": "vitepress build --mpa docs",
     "dev": "vitepress dev docs"
   },
   "devDependencies": {
